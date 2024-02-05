@@ -1,0 +1,1378 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CMake, Galaxy">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CMake | Galaxy</title>
+    <link rel="icon" type="image/jpeg" href="/medias/loopy.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/loopy.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Galaxy</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>书籍</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>照片</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/loopy.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Galaxy</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>书籍</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>照片</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CMake</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CMake/" class="post-category">
+                                CMake
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-02-05
+                </div>
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zx-admin/p/14127447.html">参考</a></p>
+<ul>
+<li>注意，<strong>CMake在解析命令行参数时，会将未明确指定的参数当作源代码目录来处理！！！这就解释了 cmake .. 不用加-S参数的原因！！！</strong></li>
+<li>cmake里面的函数得输入必须是值（加$解析！！！），输出必须是变量！！！</li>
+<li>cmake里面的数据类型只有字符串<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span>(build_lib _name)</span><br><span class="line">    <span class="keyword">message</span>(STATUS <span class="variable">$&#123;_name&#125;</span>)</span><br><span class="line">    <span class="keyword">message</span>(STATUS <span class="variable">$&#123;ARGV0&#125;</span>)</span><br><span class="line">    <span class="keyword">message</span>(STATUS <span class="variable">$&#123;ARGN&#125;</span>)</span><br><span class="line">    <span class="keyword">message</span>(STATUS <span class="variable">$&#123;ARGC&#125;</span>)</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(URI hello)</span><br><span class="line">build_lib(URI <span class="string">&quot;FluentUI&quot;</span> VERSION <span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
+输出如下：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">-- URI</span><br><span class="line">-- URI</span><br><span class="line">-- FluentUIVERSION1.<span class="number">0</span></span><br><span class="line">-- <span class="number">4</span></span><br></pre></td></tr></table></figure>
+可以看出，如果不加$来解析变量，cmake始终认为传进来的是字符串！！！</li>
+</ul>
+<h2 id="S参数通常和-B参数一起使用"><a href="#S参数通常和-B参数一起使用" class="headerlink" title="-S参数通常和-B参数一起使用"></a>-S参数通常和-B参数一起使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -S &lt;CMakeLists.txt文件所在的目录(即项目根文件目录)&gt; -B &lt;存放生成文件的目录(即存放通常你理解的build文件里面的内容)&gt;</span><br></pre></td></tr></table></figure>
+<p>例如：一个项目文件目录如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- Prj</span><br><span class="line">- - build</span><br><span class="line">- - src</span><br><span class="line">- - - main.cpp</span><br><span class="line">- - CMakeLists.txt</span><br></pre></td></tr></table></figure>
+<p>那么-S后面的参数则是 …&#x2F;Prj, -B后面的参数则是 …&#x2F;Prj&#x2F;build</p>
+<h2 id="D参数"><a href="#D参数" class="headerlink" title="-D参数"></a>-D参数</h2><ul>
+<li>用于定义变量，允许你在CMake命令行中设置CMake变量的值<br>例如：<br>如果CMakeLists.txt文件中有以下内容<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+我们可以使用-D参数来覆盖这个值<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_CXX_FLAGS=14</span><br></pre></td></tr></table></figure>
+这样可以构建时灵活指定编译器标识，而不必直接修改编辑CMakeLists.txt文件！！！</li>
+</ul>
+<h2 id="D的CMAKE-PREFIX-PATH参数"><a href="#D的CMAKE-PREFIX-PATH参数" class="headerlink" title="-D的CMAKE_PREFIX_PATH参数"></a>-D的CMAKE_PREFIX_PATH参数</h2><ul>
+<li>用于指定额外的搜索路径，以寻找第三方库、工具或者其他构建所需要的依赖项</li>
+</ul>
+<p>通常查找的目录：</p>
+<ul>
+<li>lib&#x2F;cmake&#x2F;… ：查找.cmake文件</li>
+</ul>
+<h2 id="—G参数"><a href="#—G参数" class="headerlink" title="—G参数"></a>—G参数</h2><ul>
+<li>指定构建系统生成器</li>
+</ul>
+<h3 id="生成系统"><a href="#生成系统" class="headerlink" title="生成系统"></a>生成系统</h3><ul>
+<li><strong>CMake本身不直接执行编译、链接等构建任务，而是生成适用于特定生成系统的构建文件，然后通过生成系统执行实际构建过程。</strong></li>
+</ul>
+<p>常见的生成系统如下：（使用不同的生成系统可以在不同的平台和开发环境中进行构建）</p>
+<ul>
+<li>Makefile</li>
+<li>Ninja</li>
+<li>Visual Studio</li>
+</ul>
+<p><strong>生成系统的选择是为了适应不同的平台和开发环境，因为不同的平台可能使用不同的构建工具。</strong><br>比如，unix&#x2F;linux使用makefile，windows使用visual studio，而ninja则是一个跨平台的高性能构建工具！！！</p>
+<h2 id="编译的参数（一般配合使用）"><a href="#编译的参数（一般配合使用）" class="headerlink" title="编译的参数（一般配合使用）"></a>编译的参数（一般配合使用）</h2><h3 id="–build参数"><a href="#–build参数" class="headerlink" title="–build参数"></a>–build参数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake --build .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其中的”–build .”代表使用当前目录(“.”)下的构建文件来执行构建</li>
+<li>–build的后面跟着构建目录</li>
+</ul>
+<h3 id="–config"><a href="#–config" class="headerlink" title="–config"></a>–config</h3><p>后面接参数 Release 或者 Debug，用于指定构建版本</p>
+<h3 id="–target"><a href="#–target" class="headerlink" title="–target"></a>–target</h3><p>默认参数是all</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--target all 构建所有目标</span><br><span class="line">--target my_target 只构建my_target目标（CMakeLists.txt中的add_executable(my_target .cpp)）</span><br></pre></td></tr></table></figure>
+
+<p>还有其他的参数不太理解：</p>
+<ul>
+<li><em>install</em>: 定义安装目标</li>
+<li><em>clean</em>: 定义清理目标</li>
+<li><em>reconfigure</em>: 重新生成构建系统文件</li>
+</ul>
+<h3 id="–parallel"><a href="#–parallel" class="headerlink" title="–parallel"></a>–parallel</h3><p>允许并行构建，即同时编译多个源文件，以提高构建速度！！！</p>
+<h2 id="CMake指定Ninja时显示无法找到"><a href="#CMake指定Ninja时显示无法找到" class="headerlink" title="CMake指定Ninja时显示无法找到"></a>CMake指定Ninja时显示无法找到</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CMake Error: CMake was unable to find a build program corresponding to <span class="string">&quot;Ninja&quot;</span>.  CMAKE_MAKE_PROGRAM is not <span class="built_in">set</span>.  You probably need to <span class="keyword">select</span> a different build tool.</span><br></pre></td></tr></table></figure>
+<p>这个时候需要安装Ninja（<strong>据此，你知道了cmake原来真的只是一个管理工具，它下面可以使用make，ninja，vs来进行构建项目</strong>）<br><a target="_blank" rel="noopener" href="https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages">安装</a></p>
+<h2 id="CMakeLists-txt的常用代码解释"><a href="#CMakeLists-txt的常用代码解释" class="headerlink" title="CMakeLists.txt的常用代码解释"></a>CMakeLists.txt的常用代码解释</h2><h3 id="find-package"><a href="#find-package" class="headerlink" title="find_package"></a>find_package</h3><p>可以调用下述命令查看help文档</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake --help-command find_package</span><br></pre></td></tr></table></figure>
+<h4 id="搜索包的两种模式"><a href="#搜索包的两种模式" class="headerlink" title="搜索包的两种模式"></a>搜索包的两种模式</h4><p>默认是配置模式（因此模块模式可以暂时不用细看）</p>
+<ul>
+<li>module（模块）模式<ul>
+<li>搜索名为Find[PackageName].cmake的文件</li>
+<li>首先在 CMAKE_FIND_PACKAGE_REDIRECTS_DIR 查找（自从3.24版本开始）</li>
+<li>在CMAKE_MODULE_PATH中的位置找</li>
+<li>若上一个目录找不到，然后在cmake安装提供的 ref: Find Modules 中查找（实际上就是内置模块，我的mac电脑，内置module目录为：&#x2F;opt&#x2F;homebrew&#x2F;Cellar&#x2F;cmake&#x2F;3.27.1&#x2F;share&#x2F;cmake&#x2F;Modules）</li>
+</ul>
+</li>
+<li><em>config（配置）模式</em>（官网的搜索过程感觉有一些复杂，还看不太懂）<ul>
+<li>搜索名为[lowercasePackageName]-config.cmake或者[PackageName]Config.cmake的文件；如果指定了版本信息，还会查找名为[lowercasePackageName]-config-version.cmake或者[PackageName]ConfigVersion.cmake的文件</li>
+<li><em>这种模式也指定了深入搜索包的路径：[prefix]&#x2F;lib&#x2F;[package]&#x2F;[package]-config.cmake</em></li>
+<li><a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/command/find_package.html#search-procedure">搜索过程参考</a>：<ul>
+<li>首先在 CMAKE_FIND_PACKAGE_REDIRECTS_DIR 位置开始查找</li>
+<li>按照构建的安装前缀[prefix]进行搜索</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Full-Signature（完整签名）-和-Basic-Signature（基本签名）"><a href="#Full-Signature（完整签名）-和-Basic-Signature（基本签名）" class="headerlink" title="Full Signature（完整签名） 和 Basic Signature（基本签名）"></a>Full Signature（完整签名） 和 Basic Signature（基本签名）</h4><ul>
+<li><p>基本签名</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_package</span>(&lt;Package&gt;)</span><br><span class="line"><span class="keyword">find_package</span>(Qt5)</span><br></pre></td></tr></table></figure>
+<p>简单引入一个包，不提供对版本、组件等高级特性的精细控制</p>
+</li>
+<li><p><em>完整签名</em>（待补充）</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_package</span>(&lt;PackageName&gt; [version] [EXACT] [QUIET] [MODULE]</span><br><span class="line">            [REQUIRED] [[COMPONENTS] [components...]]</span><br><span class="line">            [OPTIONAL_COMPONENTS components...]</span><br><span class="line">            [REGISTRY_VIEW  (<span class="number">64</span>|<span class="number">32</span>|<span class="number">64</span>_32|<span class="number">32</span>_64|HOST|<span class="keyword">TARGET</span>|BOTH)]</span><br><span class="line">            [GLOBAL]</span><br><span class="line">            [NO_POLICY_SCOPE]</span><br><span class="line">            [BYPASS_PROVIDER])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>COMPONENTS: 提供版本号，可以使用 COMPONENTS 选项指定需要的组件</li>
+</ol>
+<h4 id="find-package中参数的含义"><a href="#find-package中参数的含义" class="headerlink" title="find_package中参数的含义"></a>find_package中参数的含义</h4><ul>
+<li><p>NAMES：允许指定多个可能的软件包名称</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_package</span>(MyLibrary NAMES MyLib MyLibraryLib REQUIRED)</span><br></pre></td></tr></table></figure>
+<p>NAMES指定了额外的两个可能的软件包名称：MyLib和MyLibraryLib；（最开始的软件包名称认为是MyLibrary）<br>REQUIRED则认为这个软件包是必须的，如果找不到，cmake将会报错！！！</p>
+</li>
+<li><p>COMPONENTS：后面可以跟上软件包的各个组件或模块的名称</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_package</span>(QT NAMES Qt5 Qt6 COMPONENTS Core REQUIRED)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>REQUIRED：位置不会影响作用：寻找的指定软件包或者组件如果没有找到会报错</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_package</span>(QT NAMES Qt5 Qt6 COMPONENTS Core REQUIRED)</span><br><span class="line"><span class="keyword">find_package</span>(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wzj_110/article/details/116670541">参考</a><br>作用：包含其他cmake脚本或者模块</p>
+<h4 id="用法一：include-cmake-utils-cmake"><a href="#用法一：include-cmake-utils-cmake" class="headerlink" title="用法一：include(cmake&#x2F;utils.cmake)"></a>用法一：include(cmake&#x2F;utils.cmake)</h4><p>搜索路径默认（如果不指定绝对路径的话）为<strong>相对于include指令所在CMakeLists.txt的路径</strong><br><img src="/images/image62.jpg"><br><img src="/images/image63.jpg"></p>
+<h4 id="用法二：include-模块module文件"><a href="#用法二：include-模块module文件" class="headerlink" title="用法二：include(模块module文件)"></a>用法二：include(模块module文件)</h4><p>搜索路径依次默认为：</p>
+<ul>
+<li>cmake内置的module目录（我的是mac电脑，内置module目录为：&#x2F;opt&#x2F;homebrew&#x2F;Cellar&#x2F;cmake&#x2F;3.27.1&#x2F;share&#x2F;cmake&#x2F;Modules）</li>
+<li>上一个目录找不到，再搜索’CMAKE_MODULE_PATH’</li>
+<li>上一个目录找不到，报错</li>
+</ul>
+<h3 id="add-subdirctory"><a href="#add-subdirctory" class="headerlink" title="add_subdirctory"></a>add_subdirctory</h3><p>将子目录添加到构建中，子目录需要包含CMakeLists.txt文件</p>
+<ul>
+<li>与include的最大区别：<strong>cmake每次调用add_subdirectory都会引入一个新的变量范围，其中的变量在该子目录以及其子目录中有效，这样有助于隔离不同目录中的变量，避免命名冲突！！！</strong></li>
+</ul>
+<h3 id="cmake-path"><a href="#cmake-path" class="headerlink" title="cmake_path"></a><em>cmake_path</em></h3><p><a target="_blank" rel="noopener" href="https://cmake-doc.readthedocs.io/zh-cn/latest/command/cmake_path.html">参考</a><br>在cmake3.20版本之后才加入；</p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>只处理语法方面的路径操作</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><ul>
+<li>GET指令<ul>
+<li>参数 PARENT_PATH<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">cmake_path(GET &lt;path-var&gt; PARENT_PATH &lt;out-var&gt;)</span><br></pre></td></tr></table></figure>
+使用例子：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">cmake_path(GET CMAKE_CURRENT_LIST_DIR PARENT_PATH <span class="keyword">TEST</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;CMAKE_CURRENT_LIST_DIR: $&#123;CMAKE_CURRENT_LIST_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;TEST: $&#123;TEST&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+输出如下：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">-- CMAKE_CURRENT_LIST_DIR: /Users/galaxy/code/exam</span><br><span class="line">-- <span class="keyword">TEST</span>: /Users/galaxy/code</span><br></pre></td></tr></table></figure></li>
+<li>参数 ROOT_NAME、ROOT_DIRECTORY 和 ROOT_PATH<br>在windows下的cmake输出<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(path <span class="string">&quot;c:/a&quot;</span>)</span><br><span class="line"></span><br><span class="line">cmake_path(GET path ROOT_NAME rootName)</span><br><span class="line">cmake_path(GET path ROOT_DIRECTORY rootDir)</span><br><span class="line">cmake_path(GET path ROOT_PATH rootPath)</span><br><span class="line"></span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Root name is \&quot;$&#123;rootName&#125;\&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Root directory is \&quot;$&#123;rootDir&#125;\&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Root path is \&quot;$&#123;rootPath&#125;\&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">Root name is <span class="string">&quot;c:&quot;</span></span><br><span class="line">Root directory is <span class="string">&quot;/&quot;</span></span><br><span class="line">Root path is <span class="string">&quot;c:/&quot;</span></span><br></pre></td></tr></table></figure>
+在linux下的cmake输出<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(path <span class="string">&quot;/Users/galaxy/code/exam&quot;</span>)</span><br><span class="line">cmake_path(GET path ROOT_NAME rootName)</span><br><span class="line">cmake_path(GET path ROOT_DIRECTORY rootDir)</span><br><span class="line">cmake_path(GET path ROOT_PATH rootPath)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;path: $&#123;path&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(status <span class="string">&quot;Root name is $&#123;rootName&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(status <span class="string">&quot;Root directory is $&#123;rootDir&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(status <span class="string">&quot;Root path is $&#123;rootPath&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">-- path: /Users/galaxy/code/exam</span><br><span class="line">statusRoot name is </span><br><span class="line">statusRoot directory is /</span><br><span class="line">statusRoot path is /</span><br></pre></td></tr></table></figure></li>
+<li>参数 FILENAME<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(path <span class="string">&quot;/Users/galaxy/code/exam&quot;</span>)</span><br><span class="line">cmake_path(GET path FILENAME filename)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;path: $&#123;path&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;filename: $&#123;filename&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">-- path: /Users/galaxy/code/exam</span><br><span class="line">-- filename: exam</span><br></pre></td></tr></table></figure></li>
+<li>参数 EXTENSION STEM<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(path <span class="string">&quot;name.ex1.ex2&quot;</span>)</span><br><span class="line">cmake_path(GET path EXTENSION extension)</span><br><span class="line">cmake_path(GET path STEM fullstem)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;extension: $&#123;extension&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;fullstem: $&#123;fullstem&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">-- extension: .ex1.ex2</span><br><span class="line">-- fullstem: name</span><br></pre></td></tr></table></figure></li>
+<li>参数 RELATIVE_PART <a target="_blank" rel="noopener" href="https://cmake-doc.readthedocs.io/zh-cn/latest/command/cmake_path.html">参考</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>通过帮助指令来查看帮助信息！！！</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake --help-command <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">Set Cache Entry</span><br><span class="line">^^^^^^^^^^^^^^^</span><br><span class="line"></span><br><span class="line">.. signature::</span><br><span class="line">  <span class="built_in">set</span>(&lt;variable&gt; &lt;value&gt;... CACHE &lt;<span class="built_in">type</span>&gt; &lt;docstring&gt; [FORCE])</span><br><span class="line">  :target: CACHE</span><br><span class="line"></span><br><span class="line">  Sets the given cache ``&lt;variable&gt;`` (cache entry).  Since cache entries</span><br><span class="line">  are meant to provide user-settable values this does not overwrite</span><br><span class="line">  existing cache entries by default.  Use the ``FORCE`` option to</span><br><span class="line">  overwrite existing entries.</span><br><span class="line"></span><br><span class="line">  The ``&lt;<span class="built_in">type</span>&gt;`` must be specified as one of:</span><br><span class="line"></span><br><span class="line">    ``BOOL``</span><br><span class="line">      Boolean ``ON/OFF`` value.</span><br><span class="line">      ``cmake-gui(1)`` offers a checkbox.</span><br><span class="line"></span><br><span class="line">    ``FILEPATH``</span><br><span class="line">      Path to a file on disk.</span><br><span class="line">      ``cmake-gui(1)`` offers a file dialog.</span><br><span class="line"></span><br><span class="line">    ``PATH``</span><br><span class="line">      Path to a directory on disk.</span><br><span class="line">      ``cmake-gui(1)`` offers a file dialog.</span><br><span class="line"></span><br><span class="line">    ``STRING``</span><br><span class="line">      A line of text.</span><br><span class="line">      ``cmake-gui(1)`` offers a text field or a drop-down selection</span><br><span class="line">      <span class="keyword">if</span> the ``STRINGS`` cache entry property is <span class="built_in">set</span>.</span><br><span class="line"></span><br><span class="line">    ``INTERNAL``</span><br><span class="line">      A line of text.</span><br><span class="line">      ``cmake-gui(1)`` does not show internal entries.</span><br><span class="line">      They may be used to store variables persistently across runs.</span><br><span class="line">      Use of this <span class="built_in">type</span> implies ``FORCE``.</span><br><span class="line"></span><br><span class="line">  The ``&lt;docstring&gt;`` must be specified as a line of text</span><br><span class="line">  providing a quick summary of the option</span><br><span class="line">  <span class="keyword">for</span> presentation to ``cmake-gui(1)`` <span class="built_in">users</span>.</span><br><span class="line"></span><br><span class="line">  If the cache entry does not exist prior to the call or the ``FORCE``</span><br><span class="line">  option is given <span class="keyword">then</span> the cache entry will be <span class="built_in">set</span> to the given value.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>PATH参数：声明PA是一个路径缓存变量，可以在构建生成系统时通过-D传入输入<br>例子：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(PA <span class="string">&quot;&quot;</span> CACHE PATH <span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;PA: $&#123;PA&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>构建生成系统时</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -DPA=123 ..</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-- PA: /Users/galaxy/code/exam/build/123</span><br></pre></td></tr></table></figure>
+<ul>
+<li>““ : 是一个默认参数</li>
+<li>“hello” : 是一个描述性文本，终端不会显示</li>
+</ul>
+</li>
+<li><p>CMAKE_CXX_STANDARD_REQUIRED 参数<br>与CMAKE_CXX_STANDARD配合使用</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">17</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">ON</span>)</span><br></pre></td></tr></table></figure>
+<p>表示强制使用c++17，否则会报错！！！</p>
+</li>
+</ul>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>set用来设置变量，可以设置列表、映射等数据类型的变量，一旦变量被设置，就可以通过语法${}来访问它的值<br><a target="_blank" rel="noopener" href="https://juejin.cn/s/cmake%20set%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F">参考</a></p>
+<ul>
+<li>设置数字变量<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(my_number <span class="number">41</span>)</span><br></pre></td></tr></table></figure></li>
+<li>设置布尔变量<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(my_bool <span class="keyword">TRUE</span>)</span><br></pre></td></tr></table></figure></li>
+<li>设置列表变量<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(my_list <span class="string">&quot;item1&quot;</span> <span class="string">&quot;item2&quot;</span> <span class="string">&quot;item3&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>设置映射变量<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(my_map <span class="string">&quot;key1&quot;</span> <span class="string">&quot;value1&quot;</span> <span class="string">&quot;key2&quot;</span> <span class="string">&quot;value2&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="疑问：列表变量和映射变量如何区分？"><a href="#疑问：列表变量和映射变量如何区分？" class="headerlink" title="疑问：列表变量和映射变量如何区分？"></a><em>疑问：列表变量和映射变量如何区分？</em></h4><h3 id="add-definitions"><a href="#add-definitions" class="headerlink" title="add_definitions"></a>add_definitions</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35699473/article/details/115837708">博客参考</a><br>转化为宏定义<br>例子：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_definitions</span>(-DTEST)</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><ul>
+<li>参数： VERSION_GREATER_EQUAL<br>CMake的比较操作符！！！</li>
+</ul>
+<h3 id="set-target-properties"><a href="#set-target-properties" class="headerlink" title="set_target_properties"></a>set_target_properties</h3><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set_target_properties</span>(MyTarget PROPERTIES AUTOMOC <span class="keyword">ON</span>)</span><br></pre></td></tr></table></figure>
+<p>MyTarget可以是一个add_library生成的一个库名<br>设置目标MyTarget的属性AUTOMOC的值是ON</p>
+<h4 id="与set的区别待定"><a href="#与set的区别待定" class="headerlink" title="与set的区别待定"></a><em>与set的区别待定</em></h4><h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42730667/article/details/122568165">博客参考</a><br><a target="_blank" rel="noopener" href="https://cmake-doc.readthedocs.io/zh-cn/latest/command/file.html">官方文档</a><br>使用cmake不免需要操作相关文件，比如读取文件、创建新文件等操作，都是需要通过file指令进行</p>
+<ul>
+<li>参数 GLOB_RECURSE：遍历路径下的所有子目录！！！（从包含该命令的CMakeLists文件所在的目录开始查找）<br>举例：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">file</span>(GLOB_RECURSE CPP_FILES *.cpp *.h)</span><br></pre></td></tr></table></figure>
+递归遍历当前目录，搜索.cpp和.h结尾的文件！！！把绝对路径存储到变量CPP_FILES中</li>
+</ul>
+<h3 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_31608641/article/details/123171163">博客参考</a></p>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41923935/article/details/122155064">博客参考</a></p>
+<ul>
+<li>REPLACE参数<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>(REPLACE &lt;match_string&gt; &lt;replace_string&gt; &lt;output_variable&gt; &lt;input&gt;[&lt;input&gt; ...])</span><br></pre></td></tr></table></figure>
+从所有 input 中，查找 match_string，并使用 replace_string进行替换，替换后的字符存放到 output_variable</li>
+</ul>
+<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p><a target="_blank" rel="noopener" href="https://runebook.dev/zh/docs/cmake/command/function">参考</a></p>
+<h4 id="定义方式"><a href="#定义方式" class="headerlink" title="定义方式"></a>定义方式</h4><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span>(name [arg1 ...])</span><br><span class="line">  &lt;<span class="keyword">command</span>&gt;</span><br><span class="line"><span class="keyword">endfunction</span>([name])</span><br></pre></td></tr></table></figure>
+<p>定义一个名为 name 的函数，接受名为 arg1 … 的参数，endfunction 如果有参数，一定是 name 的重复！！！</p>
+<h4 id="调用方式（不分大小写）"><a href="#调用方式（不分大小写）" class="headerlink" title="调用方式（不分大小写）"></a>调用方式（不分大小写）</h4><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">name()</span><br><span class="line">cmake_language(CALL name) % cmake <span class="number">3.18</span> 版本新增</span><br></pre></td></tr></table></figure>
+
+<h4 id="进阶用法！！！"><a href="#进阶用法！！！" class="headerlink" title="进阶用法！！！"></a><em>进阶用法！！！</em></h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhoug2020/p/13659952.html">参考</a></p>
+<h3 id="cmake-parse-arguments"><a href="#cmake-parse-arguments" class="headerlink" title="cmake_parse_arguments"></a>cmake_parse_arguments</h3><p>解析函数参数或者，宏参数，配合函数（function）或者宏（macro）使用！！！<br>因为传进来的所有参数，最开始都是默认字符串数据类型！！！毫无区分</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_parse_arguments</span>(&lt;prefix&gt; &lt;options&gt; &lt;one_value_keywords&gt;</span><br><span class="line">                      &lt;multi_value_keywords&gt; &lt;args&gt;...)</span><br></pre></td></tr></table></figure>
+<p>上述作用：</p>
+<ul>
+<li>取出列表变量options中的每个字符串，带上prefix前缀后成为一个宏！！！</li>
+<li>取出列表变量one_value_keywords中的每个字符串，带上prefix前缀后成为一个新变量！！！同时取出变量对应字符串中的后一个字符串当座值！！！</li>
+<li>取出列表变量one_value_keywords中的每个字符串，带上prefix前缀后成为一个新变量！！！同时取出变量对应字符串 与 变量对应字符串 之间的所有字符串当座值！！！ 形成的新变量是列表变量！！！</li>
+<li>没有值的称为宏，有值的称为变量！！！</li>
+</ul>
+<h3 id="get-target-property"><a href="#get-target-property" class="headerlink" title="get_target_property"></a>get_target_property</h3><p>获取目标属性</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>( target_test main.cpp)</span><br><span class="line"><span class="keyword">set_target_properties</span> ( target_test PROPERTIES AAA <span class="number">123</span> )</span><br><span class="line"><span class="keyword">get_target_property</span> ( VAR1 target_test AAA )</span><br><span class="line"><span class="keyword">message</span> ( STATUS <span class="string">&quot;VAR1 = $&#123;VAR1&#125;&quot;</span> )</span><br></pre></td></tr></table></figure>
+<p>最后的输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">VAR1 = 123</span><br></pre></td></tr></table></figure>
+
+<h3 id="execute-process"><a href="#execute-process" class="headerlink" title="execute_process"></a>execute_process</h3><p>执行一个额外的cmake子进程！！！</p>
+<h4 id="更加有用的例子"><a href="#更加有用的例子" class="headerlink" title="更加有用的例子"></a>更加有用的例子</h4><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span>(add <span class="keyword">TARGET</span>)</span><br><span class="line">    <span class="keyword">set</span>(options NO_AUTORCC NO_AUTOMOC)</span><br><span class="line">    <span class="keyword">set</span>(oneValueArgs URI VERSION BINARY_DIR QMLDIR LIBTYPE)</span><br><span class="line">    <span class="keyword">set</span>(multiValueArgs SOURCES QMLFILES QMLFILESALIAS)</span><br><span class="line">    <span class="keyword">cmake_parse_arguments</span>(MY <span class="string">&quot;$&#123;options&#125;&quot;</span> <span class="string">&quot;$&#123;oneValueArgs&#125;&quot;</span> <span class="string">&quot;$&#123;multiValueArgs&#125;&quot;</span> <span class="variable">$&#123;ARGN&#125;</span>) <span class="comment"># 变量解析之后一定要带&quot;&quot;，否则会出错</span></span><br><span class="line">    <span class="comment">#  $&#123;ARGN&#125;存储待解析的参数列表！！！！</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(MY_NO_AUTORCC) <span class="comment"># 函数传入的参数没有 NO_AUTORCC，就不会定义这个宏</span></span><br><span class="line">        <span class="keyword">message</span>(STATUS <span class="string">&quot;hello  MY_NO_AUTORCC&quot;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(MY_URI) <span class="comment"># 函数传入的参数有 URI，就会定义这个宏</span></span><br><span class="line">        <span class="keyword">message</span>(STATUS <span class="string">&quot;hello  MY_URI : $&#123;MY_URI&#125;&quot;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(MY_SOURCES) <span class="comment"># 函数传入的参数有 SOURCES，就会定义这个宏</span></span><br><span class="line">        <span class="keyword">message</span>(STATUS <span class="string">&quot;hello  MY_SOURCES : $&#123;MY_SOURCES&#125;&quot;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># message(STATUS &quot;$&#123;ARGN&#125;&quot;) </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(MY_HELLO) <span class="comment"># cmake_parse_arguments 没有说明要解析这个参数，因此就不定义这个宏！！！</span></span><br><span class="line">        <span class="keyword">message</span>(STATUS <span class="string">&quot;$&#123;ARGN&#125;&quot;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"></span><br><span class="line">add(<span class="variable">$&#123;PROJECT_NAME&#125;</span></span><br><span class="line">    URI <span class="string">&quot;FluentUI&quot;</span></span><br><span class="line">    VERSION <span class="number">1.0</span></span><br><span class="line">    SOURCES a b c</span><br><span class="line">    QMLFILES aa bb cc</span><br><span class="line">    QMLDIR imports/FluentUI</span><br><span class="line">    BINARY_DIR usr/opt</span><br><span class="line">    LIBTYPE .cc</span><br><span class="line">    HELLO</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-- hello  MY_URI : FluentUI</span><br><span class="line">-- hello  MY_SOURCES : a;b;c</span><br><span class="line">-- URI;FluentUI;VERSION;1.0;SOURCES;a;b;c;QMLFILES;aa;bb;cc;QMLDIR;imports/FluentUI;BINARY_DIR;usr/opt;LIBTYPE;.cc;HELLO</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pandamohist/p/17721178.html">参考</a><br><a target="_blank" rel="noopener" href="https://runebook.dev/zh/docs/cmake/command/cmake_parse_arguments#command:cmake_parse_arguments">参考2</a></p>
+<h3 id="宏变量"><a href="#宏变量" class="headerlink" title="宏变量"></a>宏变量</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/560711754">参考</a></p>
+<h4 id="CMAKE-CURRENT-BINARY-DIR"><a href="#CMAKE-CURRENT-BINARY-DIR" class="headerlink" title="CMAKE_CURRENT_BINARY_DIR"></a>CMAKE_CURRENT_BINARY_DIR</h4><ul>
+<li>情况一：<br>cmake文件目录<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- src</span><br><span class="line">--- CMakeLists.txt</span><br><span class="line">---- $&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span><br></pre></td></tr></table></figure>
+生成特定生成系统的构建文件时，-B后面的路径参数，表示生成文件的存放目录！！！</li>
+</ul>
+<h4 id="CMAKE-CURRENT-LIST-DIR、CMAKE-BINARY-DIR"><a href="#CMAKE-CURRENT-LIST-DIR、CMAKE-BINARY-DIR" class="headerlink" title="CMAKE_CURRENT_LIST_DIR、CMAKE_BINARY_DIR"></a>CMAKE_CURRENT_LIST_DIR、CMAKE_BINARY_DIR</h4><p>与 CMAKE_CURRENT_SOURCE_DIR 的区别<br>文件分布如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- exam</span><br><span class="line">-- template</span><br><span class="line">--- test.cmake</span><br><span class="line">--- CMakeLists.txt</span><br><span class="line">-- CMakeLists.txt</span><br></pre></td></tr></table></figure>
+<p>exam&#x2F;CMakeLists.txt里面的代码如下</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;CMAKE_CURRENT_SOURCE_DIR: $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;CMAKE_CURRENT_LIST_DIR: $&#123;CMAKE_CURRENT_LIST_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;CMAKE_BINARY_DIR: $&#123;CMAKE_BINARY_DIR&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span>(APPEND CMAKE_MODULE_PATH <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/template)</span><br><span class="line"><span class="keyword">include</span>(<span class="keyword">test</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(template)</span><br></pre></td></tr></table></figure>
+
+<p>exam&#x2F;template&#x2F;test.cmake里面的代码如下</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;test: CMAKE_CURRENT_SOURCE_DIR: $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;test: CMAKE_CURRENT_LIST_DIR: $&#123;CMAKE_CURRENT_LIST_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;CMAKE_BINARY_DIR: $&#123;CMAKE_BINARY_DIR&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>exam&#x2F;template&#x2F;CMakeLists.txt里面的代码如下</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;template: CMAKE_CURRENT_SOURCE_DIR: $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;template: CMAKE_CURRENT_LIST_DIR: $&#123;CMAKE_CURRENT_LIST_DIR&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;CMAKE_BINARY_DIR: $&#123;CMAKE_BINARY_DIR&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-- CMAKE_CURRENT_SOURCE_DIR: /Users/galaxy/code/exam</span><br><span class="line">-- CMAKE_CURRENT_LIST_DIR: /Users/galaxy/code/exam</span><br><span class="line">-- CMAKE_BINARY_DIR: /Users/galaxy/code/exam/build</span><br><span class="line">-- <span class="built_in">test</span>: CMAKE_CURRENT_SOURCE_DIR: /Users/galaxy/code/exam</span><br><span class="line">-- <span class="built_in">test</span>: CMAKE_CURRENT_LIST_DIR: /Users/galaxy/code/exam/template</span><br><span class="line">-- CMAKE_BINARY_DIR: /Users/galaxy/code/exam/build</span><br><span class="line">-- template: CMAKE_CURRENT_SOURCE_DIR: /Users/galaxy/code/exam/template</span><br><span class="line">-- template: CMAKE_CURRENT_LIST_DIR: /Users/galaxy/code/exam/template</span><br><span class="line">-- CMAKE_BINARY_DIR: /Users/galaxy/code/exam/build</span><br></pre></td></tr></table></figure>
+
+<h2 id="add-subdirctory和include的区别"><a href="#add-subdirctory和include的区别" class="headerlink" title="add_subdirctory和include的区别"></a>add_subdirctory和include的区别</h2><p><a target="_blank" rel="noopener" href="https://stackoom.com/question/3HXdv">参考</a><br><strong>这里的参考告诉了我们通常怎么样组织代码结构！！！</strong></p>
+<ul>
+<li>子目录CMakeLists.txt文件描述子目录的构建、内容和目标规则！！！</li>
+</ul>
+<h2 id="实践CMake代码解析"><a href="#实践CMake代码解析" class="headerlink" title="实践CMake代码解析"></a>实践CMake代码解析</h2><p>主项目的cmake文件</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.20</span>)</span><br><span class="line"><span class="comment"># (1) 在project代码处，通过VERSION参数来声明版本类型！！！</span></span><br><span class="line"><span class="keyword">project</span>(FluentUI VERSION <span class="number">1.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (2) 如果要兼容windows版本，则需要这一步（进一步分析待定）</span></span><br><span class="line"><span class="keyword">if</span>(MSVC)</span><br><span class="line">    <span class="comment">#让Release也生成pdb文件</span></span><br><span class="line">    <span class="keyword">set</span>(CMAKE_SHARED_LINKER_FLAGS_RELEASE <span class="string">&quot;$&#123;CMAKE_SHARED_LINKER_FLAGS_RELEASE&#125; /DEBUG /OPT:REF /OPT:ICF&quot;</span>)</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_EXE_LINKER_FLAGS_RELEASE <span class="string">&quot;$&#123;CMAKE_EXE_LINKER_FLAGS_RELEASE&#125; /DEBUG /OPT:REF /OPT:ICF&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (3) 设置 CMAKE_MODULE_PATH 用于寻找.cmake模块</span></span><br><span class="line"><span class="keyword">set</span>(FLUENTUI_DIRECTORY <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>)</span><br><span class="line"><span class="keyword">list</span>(APPEND CMAKE_MODULE_PATH <span class="variable">$&#123;FLUENTUI_DIRECTORY&#125;</span>/.cmake/)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (4) 包含.cmake模块</span></span><br><span class="line"><span class="keyword">include</span>(GetGitRevisionDescription)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (5) 设置是否编译 例子、是否编译静态库</span></span><br><span class="line"><span class="keyword">option</span>(FLUENTUI_BUILD_EXAMPLES <span class="string">&quot;Build FluentUI demo applications.&quot;</span> <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">option</span>(FLUENTUI_BUILD_STATIC_LIB <span class="string">&quot;Build static library.&quot;</span> <span class="keyword">OFF</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (6) 寻找Qt库</span></span><br><span class="line"><span class="keyword">find_package</span>(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)</span><br><span class="line"><span class="keyword">find_package</span>(Qt<span class="variable">$&#123;QT_VERSION_MAJOR&#125;</span> REQUIRED COMPONENTS Core)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (7) 获取库的SDK路径</span></span><br><span class="line"><span class="keyword">set</span>(QT_SDK_DIR <span class="string">&quot;$&#123;Qt$&#123;QT_VERSION_MAJOR&#125;_DIR&#125;&quot;</span>)</span><br><span class="line">cmake_path(GET QT_SDK_DIR PARENT_PATH QT_SDK_DIR)</span><br><span class="line">cmake_path(GET QT_SDK_DIR PARENT_PATH QT_SDK_DIR)</span><br><span class="line">cmake_path(GET QT_SDK_DIR PARENT_PATH QT_SDK_DIR)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (8) 设置QML插件输出路径</span></span><br><span class="line"><span class="comment">#设置QML插件输出目录，可以通过外部设置，如果外部没有设置就默认到&lt;QT_SDK_DIR_PATH&gt;\qml\FluentUI目录下</span></span><br><span class="line"><span class="keyword">set</span>(FLUENTUI_QML_PLUGIN_DIRECTORY <span class="string">&quot;&quot;</span> CACHE PATH <span class="string">&quot;Path to FluentUI plugin&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">NOT</span> FLUENTUI_QML_PLUGIN_DIRECTORY)</span><br><span class="line">    <span class="keyword">set</span>(FLUENTUI_QML_PLUGIN_DIRECTORY <span class="variable">$&#123;QT_SDK_DIR&#125;</span>/qml/FluentUI)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (9) 寻找子目录的CMakeLists.txt文件</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>(src)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Release也支持日志打印代码位置</span></span><br><span class="line"><span class="keyword">target_compile_definitions</span>(fluentuiplugin</span><br><span class="line">    PRIVATE</span><br><span class="line">    QT_MESSAGELOGCONTEXT</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (FLUENTUI_BUILD_EXAMPLES)</span><br><span class="line">    <span class="keyword">add_subdirectory</span>(example)</span><br><span class="line"><span class="keyword">endif</span> ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;------------------------ FluentUI ------------------------&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Build FluentUI demo applications.: $&#123;FLUENTUI_BUILD_EXAMPLES&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Build static library.: $&#123;FLUENTUI_BUILD_STATIC_LIB&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Path to FluentUI plugin.: $&#123;FLUENTUI_QML_PLUGIN_DIRECTORY&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MSVC编译器：是Visual Studio默认C++编译器，用于编译windows上的c++代码</li>
+<li>list：将项目额外的搜索路径（${FLUENTUI_DIRECTORY}&#x2F;.cmake&#x2F;）添加到CMake模块路径中！！！</li>
+<li>为什么有两个find_package，第二个find_package有什么用？</li>
+<li>QT_VERSION_MAJOR 是一个宏，用于表示当前Qt版本的主要版本号，如果Qt的版本是5.12.2，那么这个宏被定义为5；除此之外，还有宏QT_VERSION_MINOR次要版本号，还有宏QT_VERSION_PATCH补丁版本宏<ul>
+<li><em>宏 QT_VERSION_MAJOR 来源于哪里呢？</em></li>
+</ul>
+</li>
+<li>cmake_path是什么命令，带上参数PARENT_PATH，就是取上一级路径<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">cmake_path(GET QT_SDK_DIR PARENT_PATH QT_SDK_DIR)</span><br></pre></td></tr></table></figure>
+GET 表示从路径 QT_SDK_DIR 中取出父路径（PARENT_PATH） 放到变量 QT_SDK_DIR 中！！！</li>
+<li><em>已经debug发现FLUENTUI_QML_PLUGIN_DIRECTORY&#x3D;&#x2F;opt&#x2F;homebrew&#x2F;Cellar&#x2F;qt@5&#x2F;5.15.11&#x2F;qml&#x2F;FluentUI，然后发现qt目录新增了文件夹FluentUI，这个文件夹也是要自己写的吗？</em></li>
+</ul>
+<p>子目录的CMakeLists.txt文件！！！</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="comment"># (1) 子目录的CMakeLists.txt文件也需要加 cmake_minimum_required 命令</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.20</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (FLUENTUI_BUILD_STATIC_LIB <span class="keyword">AND</span> (QT_VERSION <span class="keyword">VERSION_GREATER_EQUAL</span> <span class="string">&quot;6.2&quot;</span>))</span><br><span class="line">    <span class="keyword">project</span>(fluentui VERSION <span class="number">1.0</span>)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">project</span>(fluentuiplugin VERSION <span class="number">1.0</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (2) 子目录里面的CMakeLists.txt设置C++版本，项目的CMakeList.txt中没有设置！！！</span></span><br><span class="line"><span class="comment">#配置通用编译</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">17</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (3) 子目录如果编译静态库，则往源代码中增加宏定义</span></span><br><span class="line"><span class="keyword">if</span> (FLUENTUI_BUILD_STATIC_LIB)</span><br><span class="line">    <span class="keyword">add_definitions</span>(-DFLUENTUI_BUILD_STATIC_LIB)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (4) 子目录 导入Qt的组件包 </span></span><br><span class="line"><span class="comment">#导入Qt相关依赖包</span></span><br><span class="line"><span class="keyword">find_package</span>(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick Qml)</span><br><span class="line"><span class="keyword">find_package</span>(Qt<span class="variable">$&#123;QT_VERSION_MAJOR&#125;</span> REQUIRED COMPONENTS Core Quick Qml)</span><br><span class="line"></span><br><span class="line"><span class="comment"># (5) 子目录，打开uic工具、元编译器、资源编译器</span></span><br><span class="line"><span class="keyword">if</span>(QT_VERSION <span class="keyword">VERSION_GREATER_EQUAL</span> <span class="string">&quot;6.3&quot;</span>)</span><br><span class="line">    qt_standard_project_setup()</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_AUTOMOC <span class="keyword">ON</span>)</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_AUTORCC <span class="keyword">ON</span>)</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_AUTOUIC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (6) 子目录，寻找所有cpp文件</span></span><br><span class="line"><span class="comment">#遍历所有Cpp文件</span></span><br><span class="line"><span class="keyword">file</span>(GLOB_RECURSE CPP_FILES *.cpp *.h)</span><br><span class="line"><span class="keyword">foreach</span>(filepath <span class="variable">$&#123;CPP_FILES&#125;</span>)</span><br><span class="line">    <span class="keyword">string</span>(REPLACE <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/&quot;</span> <span class="string">&quot;&quot;</span> filename <span class="variable">$&#123;filepath&#125;</span>)</span><br><span class="line">    <span class="keyword">list</span>(APPEND sources_files <span class="variable">$&#123;filename&#125;</span>)</span><br><span class="line"><span class="keyword">endforeach</span>(filepath)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(QT_VERSION <span class="keyword">VERSION_GREATER_EQUAL</span> <span class="string">&quot;6.2&quot;</span>)</span><br><span class="line">    <span class="comment">#删除fluentuiplugin.cpp与fluentuiplugin.h，这些只要Qt5使用，Qt6不需要</span></span><br><span class="line">    <span class="keyword">list</span>(REMOVE_ITEM sources_files fluentuiplugin.h fluentuiplugin.cpp)</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">NOT</span> FLUENTUI_BUILD_STATIC_LIB)</span><br><span class="line">        <span class="keyword">list</span>(REMOVE_ITEM sources_files FluentUI.h FluentUI.cpp)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#遍历所有qml文件</span></span><br><span class="line">    <span class="keyword">file</span>(GLOB_RECURSE QML_PATHS *.qml)</span><br><span class="line">    <span class="keyword">foreach</span>(filepath <span class="variable">$&#123;QML_PATHS&#125;</span>)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$&#123;filepath&#125;</span> <span class="keyword">MATCHES</span> <span class="string">&quot;Qt$&#123;QT_VERSION_MAJOR&#125;/&quot;</span>)</span><br><span class="line">            <span class="keyword">string</span>(REPLACE <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/&quot;</span> <span class="string">&quot;&quot;</span> filename <span class="variable">$&#123;filepath&#125;</span>)</span><br><span class="line">            <span class="keyword">list</span>(APPEND qml_files <span class="variable">$&#123;filename&#125;</span>)</span><br><span class="line">        <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">endforeach</span>(filepath)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#遍历所有资源文件</span></span><br><span class="line">    <span class="keyword">file</span>(GLOB_RECURSE RES_PATHS *.png *.jpg *.svg *.ico *.ttf *.webp *.js)</span><br><span class="line">    <span class="keyword">foreach</span>(filepath <span class="variable">$&#123;RES_PATHS&#125;</span>)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$&#123;filepath&#125;</span> <span class="keyword">MATCHES</span> <span class="string">&quot;Qt$&#123;QT_VERSION_MAJOR&#125;/&quot;</span>)</span><br><span class="line">            <span class="keyword">string</span>(REPLACE <span class="string">&quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/&quot;</span> <span class="string">&quot;&quot;</span> filename <span class="variable">$&#123;filepath&#125;</span>)</span><br><span class="line">            <span class="keyword">list</span>(APPEND resource_files <span class="variable">$&#123;filename&#125;</span>)</span><br><span class="line">        <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">endforeach</span>(filepath)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#修改资源文件导出路径</span></span><br><span class="line">    <span class="keyword">foreach</span>(filepath IN LISTS qml_files resource_files)</span><br><span class="line">        <span class="keyword">string</span>(REPLACE <span class="string">&quot;Qt$&#123;QT_VERSION_MAJOR&#125;/imports/FluentUI/&quot;</span> <span class="string">&quot;&quot;</span> filename <span class="variable">$&#123;filepath&#125;</span>)</span><br><span class="line">        <span class="keyword">set_source_files_properties</span>(<span class="variable">$&#123;filepath&#125;</span> PROPERTIES QT_RESOURCE_ALIAS <span class="variable">$&#123;filename&#125;</span>)</span><br><span class="line">    <span class="keyword">endforeach</span>()</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (7) 设置编译的库类型，用于add_library命令中的参数</span></span><br><span class="line"><span class="keyword">if</span> (FLUENTUI_BUILD_STATIC_LIB)</span><br><span class="line">    <span class="keyword">set</span>(LIB_TYPE <span class="string">&quot;STATIC&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">set</span>(LIB_TYPE <span class="string">&quot;SHARED&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># (8) 根据编译库类型，设置一些插件属性</span></span><br><span class="line"><span class="keyword">if</span> (FLUENTUI_BUILD_STATIC_LIB)</span><br><span class="line">    <span class="keyword">set</span>(PLUGIN_TARGET_NAME <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="comment">#如果是动态库，则使用插件目标作为其自己的支持目标来定义 QML 模块，在这种情况下，模块必须在运行时动态加载，并且不能由其他目标直接链接到</span></span><br><span class="line">    <span class="keyword">set</span>(PLUGIN_TARGET_NAME <span class="variable">$&#123;PROJECT_NAME&#125;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#如果是Windows平台，则生成rc文件</span></span><br><span class="line"><span class="keyword">set</span>(FLUENTUI_VERSION_RC_PATH <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(WIN32)</span><br><span class="line">    <span class="keyword">set</span>(FLUENTUI_VERSION_RC_PATH <span class="variable">$&#123;CMAKE_BINARY_DIR&#125;</span>/version_<span class="variable">$&#123;PROJECT_NAME&#125;</span>.rc)</span><br><span class="line">    <span class="keyword">configure_file</span>(</span><br><span class="line">        <span class="variable">$&#123;FLUENTUI_DIRECTORY&#125;</span>/.cmake/version_dll.rc.in</span><br><span class="line">        <span class="variable">$&#123;FLUENTUI_VERSION_RC_PATH&#125;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(QT_VERSION <span class="keyword">VERSION_GREATER_EQUAL</span> <span class="string">&quot;6.2&quot;</span>)</span><br><span class="line">    <span class="comment">#如果是Qt6.2版本以上，则使用qt_add_library，qt_add_qml_module函数添加资源文件</span></span><br><span class="line">    <span class="keyword">if</span>(FLUENTUI_BUILD_STATIC_LIB)</span><br><span class="line">        <span class="keyword">set</span>(FLUENTUI_QML_PLUGIN_DIRECTORY <span class="variable">$&#123;CMAKE_BINARY_DIR&#125;</span>/FluentUI)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line">    qt_add_library(<span class="variable">$&#123;PROJECT_NAME&#125;</span> <span class="variable">$&#123;LIB_TYPE&#125;</span>)</span><br><span class="line">    qt_add_qml_module(<span class="variable">$&#123;PROJECT_NAME&#125;</span></span><br><span class="line">        PLUGIN_TARGET <span class="variable">$&#123;PLUGIN_TARGET_NAME&#125;</span></span><br><span class="line">        OUTPUT_DIRECTORY <span class="variable">$&#123;FLUENTUI_QML_PLUGIN_DIRECTORY&#125;</span></span><br><span class="line">        VERSION <span class="number">1.0</span></span><br><span class="line">        URI <span class="string">&quot;FluentUI&quot;</span></span><br><span class="line">        <span class="comment">#修改qmltypes文件名称。默认fluentuiplugin.qmltypes，使用默认名称有时候import FluentUI 1.0会爆红，所以修改成plugins.qmltypes</span></span><br><span class="line">        TYPEINFO <span class="string">&quot;plugins.qmltypes&quot;</span></span><br><span class="line">        SOURCES <span class="variable">$&#123;sources_files&#125;</span> <span class="variable">$&#123;FLUENTUI_VERSION_RC_PATH&#125;</span></span><br><span class="line">        QML_FILES <span class="variable">$&#123;qml_files&#125;</span></span><br><span class="line">        RESOURCES <span class="variable">$&#123;resource_files&#125;</span></span><br><span class="line">        RESOURCE_PREFIX <span class="string">&quot;/qt/qml&quot;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="comment"># (9) include .cmake文件，调用里面的函数，最终执行add_library代码，生成指定类型的qml插件库！！！</span></span><br><span class="line">    <span class="comment">#如果是Qt6.2版本以下，则使用add_qmlplugin函数添加资源文件，这是个自定义的函数，详情见.cmake/QmlPlugin.cmake</span></span><br><span class="line">    <span class="keyword">include</span>(QmlPlugin)</span><br><span class="line">    add_qmlplugin(<span class="variable">$&#123;PROJECT_NAME&#125;</span></span><br><span class="line">        URI <span class="string">&quot;FluentUI&quot;</span></span><br><span class="line">        VERSION <span class="number">1.0</span></span><br><span class="line">        SOURCES <span class="variable">$&#123;sources_files&#125;</span> <span class="variable">$&#123;FLUENTUI_VERSION_RC_PATH&#125;</span> Qt5/imports/fluentui.qrc</span><br><span class="line">        QMLFILES <span class="variable">$&#123;qml_files&#125;</span></span><br><span class="line">        QMLDIR imports/FluentUI</span><br><span class="line">        BINARY_DIR <span class="variable">$&#123;FLUENTUI_QML_PLUGIN_DIRECTORY&#125;</span></span><br><span class="line">        LIBTYPE <span class="variable">$&#123;LIB_TYPE&#125;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_compile_definitions</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span></span><br><span class="line">    PRIVATE</span><br><span class="line">    <span class="comment">#导入qrcode配置文件</span></span><br><span class="line">    HAVE_CONFIG_H</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#去掉mingw生成的动态库libxxx前缀lib，不去掉前缀会导致 module &quot;FluentUI&quot; plugin &quot;fluentuiplugin&quot; not found</span></span><br><span class="line"><span class="keyword">if</span>(MINGW)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PROPERTIES PREFIX <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#MSVC Debug 添加后缀d，与Qt插件风格保持一致</span></span><br><span class="line"><span class="keyword">if</span>(MSVC)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PROPERTIES DEBUG_POSTFIX <span class="string">&quot;d&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#链接库</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PUBLIC</span><br><span class="line">    Qt<span class="variable">$&#123;QT_VERSION_MAJOR&#125;</span>::CorePrivate</span><br><span class="line">    Qt<span class="variable">$&#123;QT_VERSION_MAJOR&#125;</span>::QuickPrivate</span><br><span class="line">    Qt<span class="variable">$&#123;QT_VERSION_MAJOR&#125;</span>::QmlPrivate</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line"><span class="keyword">install</span>(DIRECTORY <span class="variable">$&#123;FLUENTUI_QML_PLUGIN_DIRECTORY&#125;</span> DESTINATION <span class="variable">$&#123;CMAKE_INSTALL_PREFIX&#125;</span>/imports)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>QmlPlugin.cmake文件的内容如下</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span>(CMakeParseArguments)</span><br><span class="line"><span class="keyword">find_package</span>(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)</span><br><span class="line"><span class="keyword">find_package</span>(Qt<span class="variable">$&#123;QT_VERSION_MAJOR&#125;</span> REQUIRED COMPONENTS Core)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>(FindQmlPluginDump)</span><br><span class="line">    <span class="keyword">get_target_property</span> (QT_QMAKE_EXECUTABLE Qt5::qmake IMPORTED_LOCATION)</span><br><span class="line">    <span class="keyword">execute_process</span>(</span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;QT_QMAKE_EXECUTABLE&#125;</span> -query QT_INSTALL_BINS</span><br><span class="line">        OUTPUT_VARIABLE QT_BIN_DIR</span><br><span class="line">        OUTPUT_STRIP_TRAILING_WHITESPACE</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>(FindQtInstallQml)</span><br><span class="line">    <span class="keyword">execute_process</span>(</span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;QT_QMAKE_EXECUTABLE&#125;</span> -query QT_INSTALL_QML</span><br><span class="line">        OUTPUT_VARIABLE PROC_RESULT</span><br><span class="line">        OUTPUT_STRIP_TRAILING_WHITESPACE</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">set</span>(QT_INSTALL_QML <span class="variable">$&#123;PROC_RESULT&#125;</span> PARENT_SCOPE)</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>(add_qmlplugin <span class="keyword">TARGET</span>)</span><br><span class="line">    <span class="keyword">set</span>(options NO_AUTORCC NO_AUTOMOC)</span><br><span class="line">    <span class="keyword">set</span>(oneValueArgs URI VERSION BINARY_DIR QMLDIR LIBTYPE)</span><br><span class="line">    <span class="keyword">set</span>(multiValueArgs SOURCES QMLFILES QMLFILESALIAS)</span><br><span class="line">    <span class="comment"># (1) 解析参数！！！</span></span><br><span class="line">    <span class="keyword">cmake_parse_arguments</span>(QMLPLUGIN <span class="string">&quot;$&#123;options&#125;&quot;</span> <span class="string">&quot;$&#123;oneValueArgs&#125;&quot;</span> <span class="string">&quot;$&#123;multiValueArgs&#125;&quot;</span> <span class="variable">$&#123;ARGN&#125;</span>)</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">NOT</span> QMLPLUGIN_URI <span class="keyword">OR</span> <span class="keyword">NOT</span> QMLPLUGIN_VERSION <span class="keyword">OR</span> <span class="keyword">NOT</span> QMLPLUGIN_QMLDIR <span class="keyword">OR</span> <span class="keyword">NOT</span> QMLPLUGIN_LIBTYPE)</span><br><span class="line">        <span class="keyword">message</span>(WARNING <span class="string">&quot;TARGET,URI,VERSION,qmldir and LIBTYPE must be set, no files generated&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span>()</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line">    <span class="comment"># (2) 设置库的输出目录！！！</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">NOT</span> QMLPLUGIN_BINARY_DIR)</span><br><span class="line">        <span class="keyword">set</span>(QMLPLUGIN_BINARY_DIR <span class="variable">$&#123;CMAKE_BINARY_DIR&#125;</span>/<span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line">    <span class="comment"># (3) 生成指定类型的库</span></span><br><span class="line">    <span class="keyword">add_library</span>(<span class="variable">$&#123;TARGET&#125;</span> <span class="variable">$&#123;QMLPLUGIN_LIBTYPE&#125;</span></span><br><span class="line">        <span class="variable">$&#123;QMLPLUGIN_SOURCES&#125;</span></span><br><span class="line">    )</span><br><span class="line"><span class="comment"># (4) 设置库的输出目录！！！</span></span><br><span class="line"><span class="keyword">set</span>(LIBRARY_OUTPUT_PATH <span class="variable">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/lib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(QMLPLUGIN_NO_AUTORCC)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(<span class="variable">$&#123;TARGET&#125;</span> PROPERTIES AUTOMOC <span class="keyword">OFF</span>)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">set_target_properties</span>(<span class="variable">$&#123;TARGET&#125;</span> PROPERTIES AUTOMOC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="keyword">if</span>(QMLPLUGIN_NO_AUTOMOC)</span><br><span class="line">    <span class="keyword">set_target_properties</span>(<span class="variable">$&#123;TARGET&#125;</span> PROPERTIES AUTOMOC <span class="keyword">OFF</span>)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">set_target_properties</span>(<span class="variable">$&#123;TARGET&#125;</span> PROPERTIES AUTOMOC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$&#123;QMLPLUGIN_LIBTYPE&#125;</span> <span class="keyword">MATCHES</span> <span class="string">&quot;SHARED&quot;</span>)</span><br><span class="line">    FindQmlPluginDump()</span><br><span class="line">    FindQtInstallQml()</span><br><span class="line">    <span class="keyword">if</span>(QMLPLUGIN_BINARY_DIR)</span><br><span class="line">        <span class="keyword">set</span>(MAKE_QMLPLUGINDIR_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E <span class="keyword">make_directory</span> <span class="variable">$&#123;QMLPLUGIN_BINARY_DIR&#125;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">set</span>(COPY_QMLDIR_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/Qt5/<span class="variable">$&#123;QMLPLUGIN_QMLDIR&#125;</span>/qmldir $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/<span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>/qmldir)</span><br><span class="line">    <span class="keyword">set</span>(INSTALL_QMLDIR_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/Qt5/<span class="variable">$&#123;QMLPLUGIN_QMLDIR&#125;</span>/qmldir <span class="variable">$&#123;QMLPLUGIN_BINARY_DIR&#125;</span>/qmldir)</span><br><span class="line">    <span class="keyword">set</span>(COPY_QMLTYPES_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/Qt5/<span class="variable">$&#123;QMLPLUGIN_QMLDIR&#125;</span>/plugins.qmltypes $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/<span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>/plugins.qmltypes)</span><br><span class="line">    <span class="keyword">set</span>(INSTALL_QMLTYPES_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/Qt5/<span class="variable">$&#123;QMLPLUGIN_QMLDIR&#125;</span>/plugins.qmltypes <span class="variable">$&#123;QMLPLUGIN_BINARY_DIR&#125;</span>/plugins.qmltypes)</span><br><span class="line">    <span class="keyword">set</span>(COPY_LIBRARY_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/$&lt;TARGET_FILE_NAME:<span class="variable">$&#123;TARGET&#125;</span>&gt; $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/<span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>)</span><br><span class="line">    <span class="keyword">set</span>(INSTALL_LIBRARY_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/$&lt;TARGET_FILE_NAME:<span class="variable">$&#123;TARGET&#125;</span>&gt; <span class="variable">$&#123;QMLPLUGIN_BINARY_DIR&#125;</span>)</span><br><span class="line">    <span class="keyword">if</span>(QMLPLUGIN_QMLDIR)</span><br><span class="line">        <span class="keyword">set</span>(COPY_QMLFILES_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy_directory <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/Qt5/<span class="variable">$&#123;QMLPLUGIN_QMLDIR&#125;</span> $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/<span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>)</span><br><span class="line">    <span class="keyword">else</span>()</span><br><span class="line">        <span class="keyword">set</span>(COPY_QMLFILES_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/<span class="variable">$&#123;QMLPLUGIN_QMLFILES&#125;</span> $&lt;TARGET_FILE_DIR:<span class="variable">$&#123;TARGET&#125;</span>&gt;/<span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>)</span><br><span class="line">    <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">set</span>(INSTALL_QMLFILES_COMMAND <span class="variable">$&#123;CMAKE_COMMAND&#125;</span> -E copy_directory <span class="variable">$&#123;CMAKE_CURRENT_LIST_DIR&#125;</span>/Qt5/<span class="variable">$&#123;QMLPLUGIN_QMLDIR&#125;</span> <span class="variable">$&#123;QMLPLUGIN_BINARY_DIR&#125;</span>)</span><br><span class="line">    <span class="keyword">if</span>(QMLPLUGIN_BINARY_DIR)</span><br><span class="line">        <span class="keyword">add_custom_command</span>(</span><br><span class="line">            <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">            POST_BUILD</span><br><span class="line">            <span class="keyword">COMMAND</span> <span class="variable">$&#123;MAKE_QMLPLUGINDIR_COMMAND&#125;</span></span><br><span class="line">            <span class="keyword">COMMAND</span> <span class="variable">$&#123;COPY_QMLDIR_COMMAND&#125;</span></span><br><span class="line">            COMMENT <span class="string">&quot;Copying qmldir to binary directory&quot;</span></span><br><span class="line">        )</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">add_custom_command</span>(</span><br><span class="line">        <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">        POST_BUILD</span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;COPY_QMLDIR_COMMAND&#125;</span></span><br><span class="line">        COMMENT <span class="string">&quot;Copying qmldir to binary directory&quot;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(QMLPLUGIN_BINARY_DIR)</span><br><span class="line">    <span class="keyword">add_custom_command</span>(</span><br><span class="line">        <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">        POST_BUILD</span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;MAKE_QMLPLUGINDIR_COMMAND&#125;</span></span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;COPY_QMLTYPES_COMMAND&#125;</span></span><br><span class="line">        COMMENT <span class="string">&quot;Copying qmltypes to binary directory&quot;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">add_custom_command</span>(</span><br><span class="line">        <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">        POST_BUILD</span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;COPY_QMLTYPES_COMMAND&#125;</span></span><br><span class="line">        COMMENT <span class="string">&quot;Copying qmltypes to binary directory&quot;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_custom_command</span>(</span><br><span class="line">    <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">    POST_BUILD</span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;COPY_LIBRARY_COMMAND&#125;</span></span><br><span class="line">    COMMENT <span class="string">&quot;Copying Lib to binary plugin directory&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(QMLPLUGIN_QMLFILES)</span><br><span class="line">    <span class="keyword">add_custom_command</span>(</span><br><span class="line">        <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">        POST_BUILD</span><br><span class="line">        <span class="keyword">COMMAND</span> <span class="variable">$&#123;COPY_QMLFILES_COMMAND&#125;</span></span><br><span class="line">        COMMENT <span class="string">&quot;Copying QML files to binary directory&quot;</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_custom_command</span>(</span><br><span class="line">    <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">    POST_BUILD</span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;GENERATE_QMLTYPES_COMMAND&#125;</span></span><br><span class="line">    COMMENT <span class="string">&quot;Generating plugin.qmltypes&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">string</span>(REPLACE <span class="string">&quot;.&quot;</span> <span class="string">&quot;/&quot;</span> QMLPLUGIN_INSTALL_URI <span class="variable">$&#123;QMLPLUGIN_URI&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_custom_command</span>(</span><br><span class="line">    <span class="keyword">TARGET</span> <span class="variable">$&#123;TARGET&#125;</span></span><br><span class="line">    POST_BUILD</span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;INSTALL_QMLTYPES_COMMAND&#125;</span></span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;INSTALL_QMLDIR_COMMAND&#125;</span></span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;INSTALL_LIBRARY_COMMAND&#125;</span></span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;INSTALL_QMLFILES_COMMAND&#125;</span></span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;INSTALL_QMLTYPES_COMMAND&#125;</span></span><br><span class="line">    COMMENT <span class="string">&quot;Install library and aditional files&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="实践遇到的问题"><a href="#实践遇到的问题" class="headerlink" title="实践遇到的问题"></a>实践遇到的问题</h2><h3 id="项目与版本控制系统交互是什么意思？"><a href="#项目与版本控制系统交互是什么意思？" class="headerlink" title="项目与版本控制系统交互是什么意思？"></a>项目与版本控制系统交互是什么意思？</h3><h3 id="怎么样写cmake代码，才可以使得cmake在不同电脑上（mac，windows，ubuntu）都能寻找到对应的qt模块组件？"><a href="#怎么样写cmake代码，才可以使得cmake在不同电脑上（mac，windows，ubuntu）都能寻找到对应的qt模块组件？" class="headerlink" title="怎么样写cmake代码，才可以使得cmake在不同电脑上（mac，windows，ubuntu）都能寻找到对应的qt模块组件？"></a>怎么样写cmake代码，才可以使得cmake在不同电脑上（mac，windows，ubuntu）都能寻找到对应的qt模块组件？</h3><h4 id="以FluentUI为例子进行分析！"><a href="#以FluentUI为例子进行分析！" class="headerlink" title="以FluentUI为例子进行分析！"></a>以FluentUI为例子进行分析！</h4><ol>
+<li><p>第一步：cmake生成特定生成系统的构建文件时，指定额外的搜索路径，以寻找第三方库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -DCMAKE_PREFIX_PATH=/opt/homebrew/Cellar/qt@5/5.15.11 -DCMAKE_BUILD_TYPE=Release -GNinja /Users/galaxy/code/QtPrj/FluentUI-main</span><br></pre></td></tr></table></figure>
+<p>届时会搜索 指定的额外搜索路径下的 lib&#x2F;cmake&#x2F;文件夹下的 .cmake 文件</p>
+</li>
+<li><p>第二步：find_package找到对应的qt库之后，会有以下独特的参数，需要设置的参数会标明 （<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/630034777">参考</a>）</p>
+<ol>
+<li>CMAKE_AUTOMOC、CMAKE_AUTOMOC、CMAKE_AUTORCC<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_AUTOMOC <span class="keyword">ON</span>) % 构建过程自动调用uic工具，将ui文件转为对应的cpp文件，并将cpp文件加入到构建系统</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTORCC <span class="keyword">ON</span>) % 启用自动处理Qt元对象编译（MOC）功能。即启动元对象编译器</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTOUIC <span class="keyword">ON</span>) % cmake会在构建过程中自动查找项目中的资源文件（.qrc），并调用rcc工具（资源编译器）来将这些资源文件编译成二进制数据，然后将二进制数据添加到构建系统中。当我们在代码中使用Qt的资源管理相关函数（如QResource）时，这些资源数据将被加载和使用！！！</span><br></pre></td></tr></table></figure></li>
+<li>QT_VERSION</li>
+</ol>
+</li>
+<li><p>第三步：配置c++17，添加Qt的Core，Quick，Qml模块</p>
+</li>
+<li><p>第四步：<em>如果编译动态库</em></p>
+</li>
+<li><p>第五步：<em>如果开发平台是windows，要生成rc文件</em></p>
+</li>
+<li></li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jingjing Zhu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://positivetom.github.io/2024/01/21/CMake/">http://positivetom.github.io/2024/01/21/CMake/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jingjing Zhu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/21/Latex/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Latex">
+                        
+                        <span class="card-title">Latex</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Latex/" class="post-category">
+                                    Latex
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/21/git/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="git">
+                        
+                        <span class="card-title">git</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/git/" class="post-category">
+                                    git
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="song"
+                   id="2064960966"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='list'
+                   preload='metadata'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <span id="year">2023</span>
+            <a href="/about" target="_blank">Jingjing Zhu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2023";
+                    var startMonth = "12";
+                    var startDate = "12";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/PositiveTom" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:galaxy999815@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1441922329" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1441922329" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/bei-sheng-11-25" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/bei-sheng-11-25" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
