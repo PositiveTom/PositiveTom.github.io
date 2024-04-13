@@ -441,7 +441,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-29
+                    2024-02-21
                 </div>
                 
 
@@ -661,7 +661,153 @@
 <p>综上所述：<br>我们只要保证槽函数的命名规则：<strong>on_对象名（发出信号的对象名）_信号名()，例如</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">on_action_triggered</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 <p>就可以不用写connect函数来连接信号和槽函数了！！！</p>
-<h3 id="信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？"><a href="#信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？" class="headerlink" title="信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？"></a>信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？</h3>
+<h3 id="信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？"><a href="#信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？" class="headerlink" title="信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？"></a>信号与槽不在同一个线程，发射信号之后的代码还会等待槽函数执行完毕吗？</h3><h2 id="Qt-Quick编程（QML编程）"><a href="#Qt-Quick编程（QML编程）" class="headerlink" title="Qt Quick编程（QML编程）"></a>Qt Quick编程（QML编程）</h2><p><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/qt-beginning/content/61.html">参考</a></p>
+<h3 id="项目中实现cpp与qml交互的步骤"><a href="#项目中实现cpp与qml交互的步骤" class="headerlink" title="项目中实现cpp与qml交互的步骤"></a>项目中实现cpp与qml交互的步骤</h3><h4 id="1-修改CMakeLists-txt文件"><a href="#1-修改CMakeLists-txt文件" class="headerlink" title="1. 修改CMakeLists.txt文件"></a>1. 修改CMakeLists.txt文件</h4><h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>只要用find_package找到了qt的.cmake模块，就可以使用 qt_*** 之类的宏函数！！！</p>
+<h4 id="qt-standard-project-setup有什么用？"><a href="#qt-standard-project-setup有什么用？" class="headerlink" title="qt_standard_project_setup有什么用？"></a>qt_standard_project_setup有什么用？</h4><p>这个命令是在qt6.3时引入的，因此qt6.3之前的版本都使用不了这个命令！！！<br><a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qt-standard-project-setup.html">官方解释</a><em>我看不懂</em></p>
+<h4 id="qt-add-executable-有什么用？为什么后面的文件可以添加-ui文件？"><a href="#qt-add-executable-有什么用？为什么后面的文件可以添加-ui文件？" class="headerlink" title="qt_add_executable 有什么用？为什么后面的文件可以添加.ui文件？"></a>qt_add_executable 有什么用？为什么后面的文件可以添加.ui文件？</h4><p>这个命令在qt5.14就开始有了，qt推荐用这个命令替代add_excutable<br>二者区别如下:（<strong>这里的区别是错的</strong>）</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>区别1</th>
+<th>区别2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add_excutable</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>qt_add_excutable</td>
+<td>自动生成moc文件（元对象编译），处理qt资源文件.qrc（资源编译器），编译成可执行程序；将以上3步的构建过程进行了整合</td>
+<td>自动添加预定义宏和链接qt的模块等等</td>
+</tr>
+</tbody></table>
+<ul>
+<li>qt_add_executable参数的作用<ul>
+<li>MANUAL_FINALIZATION：<em>指示您将在稍后的某个时间自己显式调用 qt_finalize_target()，手动结束目标创建的过程，那为什么又需要手动结束目标创建过程呢？？？</em></li>
+</ul>
+</li>
+<li>qt_add_executable的作用<ul>
+<li>会生成一个中间目标文件，该文件需要经过最后的处理步骤才能成为可执行文件。<ul>
+<li>处理步骤包括：额外的qt相关链接项、处理资源文件等</li>
+</ul>
+</li>
+<li>qt_finalize_executable则负责执行这些最后的处理步骤<ul>
+<li>qt_finalize_executable仅在qt6才会执行，其他版本的qt则自动完成所有的处理步骤！！！</li>
+</ul>
+</li>
+<li>qt_add_executable 内部会调用 add_executable</li>
+</ul>
+</li>
+</ul>
+<p><strong>一定要以官方解释为准！！！</strong></p>
+<ul>
+<li>qt_add_executable 与 add_executable 的区别（<a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qt-add-executable.html">参考</a>）<ul>
+<li><ol>
+<li>除安卓平台之外，把所有参数传递给标准的 add_executable！！！（<strong>安卓平台参考上面的链接</strong>）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>并且把 Qt::Core 链接到 生成的可执行文件上！！！</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="既然你说了有以上的区别，那么请看以下-qt5-的-cmakelist-文件，它依然使用-add-excutable，-并且它也能调用uic、moc、rcc等编译器！！！！这是什么原因呢？"><a href="#既然你说了有以上的区别，那么请看以下-qt5-的-cmakelist-文件，它依然使用-add-excutable，-并且它也能调用uic、moc、rcc等编译器！！！！这是什么原因呢？" class="headerlink" title="既然你说了有以上的区别，那么请看以下 qt5 的 cmakelist 文件，它依然使用 add_excutable， 并且它也能调用uic、moc、rcc等编译器！！！！这是什么原因呢？"></a>既然你说了有以上的区别，那么请看以下 qt5 的 cmakelist 文件，它依然使用 add_excutable， 并且它也能调用uic、moc、rcc等编译器！！！！这是什么原因呢？</h4><p>已经解决，见上文的区别！！！</p>
+<h4 id="qt-add-qml-module-是什么？有什么用？"><a href="#qt-add-qml-module-是什么？有什么用？" class="headerlink" title="qt_add_qml_module 是什么？有什么用？"></a>qt_add_qml_module 是什么？有什么用？</h4><ul>
+<li>作用：用于创建和管理QML模块</li>
+</ul>
+<h4 id="为什么add-executable中可以包含-ui文件？"><a href="#为什么add-executable中可以包含-ui文件？" class="headerlink" title="为什么add_executable中可以包含.ui文件？"></a>为什么add_executable中可以包含.ui文件？</h4><ol>
+<li>cmake首先会将其视为一个普通的源文件，而不会直接对其进行编译或者链接</li>
+<li>在此之前，已经通过了find_package加载了qt的相关配置文件，这些配置文件告诉了cmake如何处理.ui文件，也就是告诉cmake应该把它交给uic编译器进行处理</li>
+</ol>
+<h4 id="以下是qt5和qt6通过CMake组织简单项目的CMakeLists-txt代码"><a href="#以下是qt5和qt6通过CMake组织简单项目的CMakeLists-txt代码" class="headerlink" title="以下是qt5和qt6通过CMake组织简单项目的CMakeLists.txt代码"></a>以下是qt5和qt6通过CMake组织简单项目的CMakeLists.txt代码</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46577050/article/details/134348784">参考解释</a><br><em>目前暂时没有区别！！</em></p>
+<ol>
+<li>qt6<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">project(template-qt6 VERSION 0.1 LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line">set(CMAKE_AUTOUIC ON)</span><br><span class="line">set(CMAKE_AUTOMOC ON)</span><br><span class="line">set(CMAKE_AUTORCC ON)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 17)</span><br><span class="line">set(CMAKE_CXX_STANDARD_REQUIRED ON)</span><br><span class="line"></span><br><span class="line">find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)</span><br><span class="line">find_package(Qt$&#123;QT_VERSION_MAJOR&#125; REQUIRED COMPONENTS Widgets)</span><br><span class="line"></span><br><span class="line">set(PROJECT_SOURCES</span><br><span class="line">        main.cpp</span><br><span class="line">        mainwindow.cpp</span><br><span class="line">        mainwindow.h</span><br><span class="line">        mainwindow.ui</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">if($&#123;QT_VERSION_MAJOR&#125; GREATER_EQUAL 6)</span><br><span class="line">    qt_add_executable(template-qt6</span><br><span class="line">        MANUAL_FINALIZATION</span><br><span class="line">        $&#123;PROJECT_SOURCES&#125;</span><br><span class="line">    )</span><br><span class="line"># Define target properties for Android with Qt 6 as:</span><br><span class="line">#    set_property(TARGET template-qt6 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR</span><br><span class="line">#                 $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/android)</span><br><span class="line"># For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation</span><br><span class="line">else()</span><br><span class="line">    if(ANDROID)</span><br><span class="line">        add_library(template-qt6 SHARED</span><br><span class="line">            $&#123;PROJECT_SOURCES&#125;</span><br><span class="line">        )</span><br><span class="line"># Define properties for Android with Qt 5 after find_package() calls as:</span><br><span class="line">#    set(ANDROID_PACKAGE_SOURCE_DIR &quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/android&quot;)</span><br><span class="line">    else()</span><br><span class="line">        add_executable(template-qt6</span><br><span class="line">            $&#123;PROJECT_SOURCES&#125;</span><br><span class="line">        )</span><br><span class="line">    endif()</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">target_link_libraries(template-qt6 PRIVATE Qt$&#123;QT_VERSION_MAJOR&#125;::Widgets)</span><br><span class="line"></span><br><span class="line"># Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.</span><br><span class="line"># If you are developing for iOS or macOS you should consider setting an</span><br><span class="line"># explicit, fixed bundle identifier manually though.</span><br><span class="line">if($&#123;QT_VERSION&#125; VERSION_LESS 6.1.0)</span><br><span class="line">  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.template-qt6)</span><br><span class="line">endif()</span><br><span class="line">set_target_properties(template-qt6 PROPERTIES</span><br><span class="line">    $&#123;BUNDLE_ID_OPTION&#125;</span><br><span class="line">    MACOSX_BUNDLE_BUNDLE_VERSION $&#123;PROJECT_VERSION&#125;</span><br><span class="line">    MACOSX_BUNDLE_SHORT_VERSION_STRING $&#123;PROJECT_VERSION_MAJOR&#125;.$&#123;PROJECT_VERSION_MINOR&#125;</span><br><span class="line">    MACOSX_BUNDLE TRUE</span><br><span class="line">    WIN32_EXECUTABLE TRUE</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">include(GNUInstallDirs)</span><br><span class="line">install(TARGETS template-qt6</span><br><span class="line">    BUNDLE DESTINATION .</span><br><span class="line">    LIBRARY DESTINATION $&#123;CMAKE_INSTALL_LIBDIR&#125;</span><br><span class="line">    RUNTIME DESTINATION $&#123;CMAKE_INSTALL_BINDIR&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">if(QT_VERSION_MAJOR EQUAL 6)</span><br><span class="line">    qt_finalize_executable(template-qt6)</span><br><span class="line">endif()</span><br></pre></td></tr></table></figure></li>
+<li>qt5<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.5)</span><br><span class="line"></span><br><span class="line">project(template-qt5 VERSION 0.1 LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line">set(CMAKE_AUTOUIC ON)</span><br><span class="line">set(CMAKE_AUTOMOC ON)</span><br><span class="line">set(CMAKE_AUTORCC ON)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 17)</span><br><span class="line">set(CMAKE_CXX_STANDARD_REQUIRED ON)</span><br><span class="line"></span><br><span class="line">find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)</span><br><span class="line">find_package(Qt$&#123;QT_VERSION_MAJOR&#125; REQUIRED COMPONENTS Widgets)</span><br><span class="line"></span><br><span class="line">set(PROJECT_SOURCES</span><br><span class="line">        main.cpp</span><br><span class="line">        mainwindow.cpp</span><br><span class="line">        mainwindow.h</span><br><span class="line">        mainwindow.ui</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">if($&#123;QT_VERSION_MAJOR&#125; GREATER_EQUAL 6)</span><br><span class="line">    qt_add_executable(template-qt5</span><br><span class="line">        MANUAL_FINALIZATION</span><br><span class="line">        $&#123;PROJECT_SOURCES&#125;</span><br><span class="line">    )</span><br><span class="line"># Define target properties for Android with Qt 6 as:</span><br><span class="line">#    set_property(TARGET template-qt5 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR</span><br><span class="line">#                 $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/android)</span><br><span class="line"># For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation</span><br><span class="line">else()</span><br><span class="line">    if(ANDROID)</span><br><span class="line">        add_library(template-qt5 SHARED</span><br><span class="line">            $&#123;PROJECT_SOURCES&#125;</span><br><span class="line">        )</span><br><span class="line"># Define properties for Android with Qt 5 after find_package() calls as:</span><br><span class="line">#    set(ANDROID_PACKAGE_SOURCE_DIR &quot;$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/android&quot;)</span><br><span class="line">    else()</span><br><span class="line">        add_executable(template-qt5</span><br><span class="line">            $&#123;PROJECT_SOURCES&#125;</span><br><span class="line">        )</span><br><span class="line">    endif()</span><br><span class="line">endif()</span><br><span class="line"></span><br><span class="line">target_link_libraries(template-qt5 PRIVATE Qt$&#123;QT_VERSION_MAJOR&#125;::Widgets)</span><br><span class="line"></span><br><span class="line"># Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.</span><br><span class="line"># If you are developing for iOS or macOS you should consider setting an</span><br><span class="line"># explicit, fixed bundle identifier manually though.</span><br><span class="line">if($&#123;QT_VERSION&#125; VERSION_LESS 6.1.0)</span><br><span class="line">  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.template-qt5)</span><br><span class="line">endif()</span><br><span class="line">set_target_properties(template-qt5 PROPERTIES</span><br><span class="line">    $&#123;BUNDLE_ID_OPTION&#125;</span><br><span class="line">    MACOSX_BUNDLE_BUNDLE_VERSION $&#123;PROJECT_VERSION&#125;</span><br><span class="line">    MACOSX_BUNDLE_SHORT_VERSION_STRING $&#123;PROJECT_VERSION_MAJOR&#125;.$&#123;PROJECT_VERSION_MINOR&#125;</span><br><span class="line">    MACOSX_BUNDLE TRUE</span><br><span class="line">    WIN32_EXECUTABLE TRUE</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">include(GNUInstallDirs)</span><br><span class="line">install(TARGETS template-qt5</span><br><span class="line">    BUNDLE DESTINATION .</span><br><span class="line">    LIBRARY DESTINATION $&#123;CMAKE_INSTALL_LIBDIR&#125;</span><br><span class="line">    RUNTIME DESTINATION $&#123;CMAKE_INSTALL_BINDIR&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">if(QT_VERSION_MAJOR EQUAL 6)</span><br><span class="line">    qt_finalize_executable(template-qt5)</span><br><span class="line">endif()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><p><strong>set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.template-qt5) 作用</strong></p>
+<ul>
+<li><em>这行代码用于设置 macOS 应用的 bundle identifier，即 MACOSX_BUNDLE_GUI_IDENTIFIER。Bundle identifier 是一个唯一标识符，用于在 macOS 系统中识别应用程序。在这个例子中，bundle identifier 被设置为 “com.example.template-qt6”。设置 bundle identifier 有助于确保应用程序在 macOS 系统中的唯一性，并且在将应用程序部署到 App Store 或其他环境时，也可以起到标识作用。</em></li>
+<li>上面一大段你认为都是chatgpt在胡言乱语，你所理解的 set 函数，BUNDLE_ID_OPTION 应该是一个变量，MACOSX_BUNDLE_GUI_IDENTIFIER和com.example.template-qt5则是值！！！！那 BUNDLE_ID_OPTION 应该是一个列表变量！！！你debug了一下，果然是一个列表变量！！！</li>
+</ul>
+</li>
+<li><p>如果qt的版本大于等于6.1，则会自动设置 宏变量 MACOSX_BUNDLE_GUI_IDENTIFIER 的值！！！！</p>
+<ul>
+<li><em>设置了一个锤子，你试验了一下，根本没有值！！！</em></li>
+</ul>
+</li>
+</ul>
+<h4 id="以下是qt6中创建qt-quick项目时的cmake文件"><a href="#以下是qt6中创建qt-quick项目时的cmake文件" class="headerlink" title="以下是qt6中创建qt quick项目时的cmake文件"></a>以下是qt6中创建qt quick项目时的cmake文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.16)</span><br><span class="line"></span><br><span class="line">project(QtQuickTemplate VERSION 0.1 LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD_REQUIRED ON)</span><br><span class="line"></span><br><span class="line">find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)</span><br><span class="line"></span><br><span class="line">qt_standard_project_setup()</span><br><span class="line"></span><br><span class="line">qt_add_executable(appQtQuickTemplate</span><br><span class="line">    main.cpp</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">qt_add_qml_module(appQtQuickTemplate</span><br><span class="line">    URI QtQuickTemplate</span><br><span class="line">    VERSION 1.0</span><br><span class="line">    QML_FILES Main.qml</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.</span><br><span class="line"># If you are developing for iOS or macOS you should consider setting an</span><br><span class="line"># explicit, fixed bundle identifier manually though.</span><br><span class="line">set_target_properties(appQtQuickTemplate PROPERTIES</span><br><span class="line">#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appQtQuickTemplate</span><br><span class="line">    MACOSX_BUNDLE_BUNDLE_VERSION $&#123;PROJECT_VERSION&#125;</span><br><span class="line">    MACOSX_BUNDLE_SHORT_VERSION_STRING $&#123;PROJECT_VERSION_MAJOR&#125;.$&#123;PROJECT_VERSION_MINOR&#125;</span><br><span class="line">    MACOSX_BUNDLE TRUE</span><br><span class="line">    WIN32_EXECUTABLE TRUE</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">target_link_libraries(appQtQuickTemplate</span><br><span class="line">    PRIVATE Qt6::Quick</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">include(GNUInstallDirs)</span><br><span class="line">install(TARGETS appQtQuickTemplate</span><br><span class="line">    BUNDLE DESTINATION .</span><br><span class="line">    LIBRARY DESTINATION $&#123;CMAKE_INSTALL_LIBDIR&#125;</span><br><span class="line">    RUNTIME DESTINATION $&#123;CMAKE_INSTALL_BINDIR&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>相比普通的qt widget项目有以下区别<ul>
+<li>含有 qt_standard_project_setup 命令</li>
+</ul>
+</li>
+</ul>
+<h2 id="实践遇到的疑问"><a href="#实践遇到的疑问" class="headerlink" title="实践遇到的疑问"></a>实践遇到的疑问</h2><h3 id="什么是Qt资源系统（Qt-Resource-System）"><a href="#什么是Qt资源系统（Qt-Resource-System）" class="headerlink" title="什么是Qt资源系统（Qt Resource System）"></a>什么是Qt资源系统（Qt Resource System）</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60457016">参考</a></p>
+<ul>
+<li>将图片、数据存储在二进制文件中一套系统。</li>
+<li>Qt资源系统是独立于平台的，因为无论图片还是翻译文件，都会被打包成二进制数据。二进制数据保存到可执行文件中，即“静态加载资源”；二进制数据单独存在一个文件中，即“动态加载资源”。</li>
+<li>使用rcc有这样一个好处，可以加快程序启动速度；当资源文件有几百兆时，这样的exe可能很慢或者根本打不开；把资源加载放到运行时！！！</li>
+</ul>
+<p>在程序中调用一张图片作为某个按钮的图标，如果替换成另一张同名的图片，那么程序运行时会加载新的图标。有另一种情况，开发者不希望这些图标被修改或者图标文件丢了程序界面就不能正常显示！！！</p>
+<p>解决方式如下：</p>
+<ul>
+<li>把这些图片存储在可执行文件中，即使删除了文件夹中的图标也不会影响界面图标的加载，因为图标数据已经以静态数据的方式保存在可执行文件中。代价就是编译出的可执行文件容量会增加。<strong>克服这个缺点的办法就是动态加载资源</strong></li>
+</ul>
+<h3 id="qrc文件怎么生成的？"><a href="#qrc文件怎么生成的？" class="headerlink" title=".qrc文件怎么生成的？"></a>.qrc文件怎么生成的？</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60457016">参考</a></p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>基于xml格式的资源系统配置文件，该文件指定了各种资源的信息。完整的将资源打包成二进制数据的流程：写qrc文件–&gt;用rcc编译–&gt;二进制数据</p>
+<h4 id="如何写qrc文件"><a href="#如何写qrc文件" class="headerlink" title="如何写qrc文件"></a>如何写qrc文件</h4><ul>
+<li>方式一：用Qt Creator写<br>示范如下：</li>
+</ul>
+<ol>
+<li>第一步，在项目中添加Qt Resource文件<br><img src="/images/qtres1.jpg"><br>内部的内容如下：<br><img src="/images/qtres2.jpg"></li>
+<li>第二步，手动在工程目录创建一个pic文件夹，用来存放图片文件<br><img src="/images/qtres3.jpg"></li>
+<li>第三步，在QtCreator中打开qrc的资源编译器，先添加前缀’&#x2F;logo’，再添加图片！！！（记得以文本编辑器打开）<br><img src="/images/qtres4.jpg"><br>写了右边的代码后，左边就自动出现树结构</li>
+<li>第四步，进阶设置（前面3步能能够得到一个基础的qrc文件）qrc文件还可以设置资源的前缀、别名和适用的语言环境。</li>
+</ol>
+<ul>
+<li><p>语言环境和前缀通常一起设置（之所以设置语言环境，是因为我们同一个图标可能因为国家原因做了不同的版本，Qt就可以根据本机语言环境选择性加载不同的图标）：如下，我们有两个logo，logo.png和logo_fr.png；如下把logo_fr.png的别名设置为logo.png；当本机语言是’fr’时，就会选择图片logo_fr.png<br><img src="/images/qtres5.jpg"><br>注意上述右边的资源文件要写成如下方式，否则后面的编译会报错，具体原因你也不知道<br><img src="/images/qtres7.jpg"></p>
+</li>
+<li><p>方式二：纯手写</p>
+</li>
+</ul>
+<h4 id="假设已经加载好资源，程序中访问上述资源文件的两种方式-也就是资源路径（下面有代码示例！！！）"><a href="#假设已经加载好资源，程序中访问上述资源文件的两种方式-也就是资源路径（下面有代码示例！！！）" class="headerlink" title="假设已经加载好资源，程序中访问上述资源文件的两种方式, 也就是资源路径（下面有代码示例！！！）"></a>假设已经加载好资源，程序中访问上述资源文件的两种方式, 也就是资源路径（下面有代码示例！！！）</h4><ul>
+<li>方式一：文件路径 [:&#x2F;pic&#x2F;logo.png]</li>
+<li>方式二：[url（:&#x2F;pic&#x2F;logo.png）]</li>
+</ul>
+<h4 id="加载资源的方式"><a href="#加载资源的方式" class="headerlink" title="加载资源的方式"></a>加载资源的方式</h4><ul>
+<li>方式一：静态方式（直接将资源数据存储在可执行文件中）<br>在工程的.pro文件中加入qrc文件以便qmake能识别资源文件，一般这步会被自动添加<br><img src="/images/qtres6.jpg"><br>rcc资源编译器编译后会生成一个名为qrc_resource.cpp的文件，打开可以看到我们的资源已经以静态数组的形式保存在该文件中。最终该数据会存入可执行文件中，但是在使用qt creator编译时，这个.cpp文件会对外部隐藏！！！！<br>例子：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- template</span><br><span class="line">- - resources.qrc</span><br></pre></td></tr></table></figure>
+在项目路径下执行以下命令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">template % /opt/homebrew/Cellar/qt@5/5.15.11/bin/rcc  -name NameSpace resource.qrc -o resource_output.cpp</span><br></pre></td></tr></table></figure>
+resource_output.cpp文件里面存储的则是logo.png的静态数组文件，如下所示<br><img src="/images/qtres9.jpg"></li>
+</ul>
+<p><em>你在Qt Creator的界面点击下图红框的三个按钮都没有生成qrc_resource.cpp文件，这是为什么呢</em><br><img src="/images/qtres8.jpg"><br><strong>因为这一步对外界隐藏了！！！你单独执行rcc编译器，则会生成！！！</strong><br>使用QtCreator通过静态方式加载图片资源步骤如下：</p>
+<ol>
+<li>按照上述方式正常撰写qrc文件</li>
+<li>通过ui界面打开.ui文件，添加QLable组件，如果qrc文件撰写正确，下图右边的红框则会出现图片路径<br><img src="/images/qtres10.jpg"></li>
+<li>编译后，可执行程序内部就带有图片资源了！！！</li>
+</ol>
+<ul>
+<li>方式二：动态方式（将资源数据存储在单独的二进制文件中并由可执行文件调用）<br><strong>使用动态方式加载时，.pro文件内容如下，因为.qrc文件你已经单独手动编译过了！！！</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">QT       += core gui</span><br><span class="line"></span><br><span class="line">greaterThan(QT_MAJOR_VERSION, 4): QT += widgets</span><br><span class="line"></span><br><span class="line">CONFIG += c++17</span><br><span class="line"></span><br><span class="line"># You can make your code fail to compile if it uses deprecated APIs.</span><br><span class="line"># In order to do so, uncomment the following line.</span><br><span class="line">#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0</span><br><span class="line"></span><br><span class="line">SOURCES += \</span><br><span class="line">    main.cpp \</span><br><span class="line">    mainwindow.cpp</span><br><span class="line"></span><br><span class="line">HEADERS += \</span><br><span class="line">    mainwindow.h</span><br><span class="line"></span><br><span class="line">FORMS += \</span><br><span class="line">    mainwindow.ui</span><br><span class="line"></span><br><span class="line"># Default rules for deployment.</span><br><span class="line">qnx: target.path = /tmp/$$&#123;TARGET&#125;/bin</span><br><span class="line">else: unix:!android: target.path = /opt/$$&#123;TARGET&#125;/bin</span><br><span class="line">!isEmpty(target.path): INSTALLS += target</span><br><span class="line"></span><br><span class="line"># RESOURCES += \</span><br><span class="line">#    resource.qrc</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>使用静态方式加载时，.pro文件内容如下</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">QT       += core gui</span><br><span class="line"></span><br><span class="line">greaterThan(QT_MAJOR_VERSION, 4): QT += widgets</span><br><span class="line"></span><br><span class="line">CONFIG += c++17</span><br><span class="line"></span><br><span class="line"># You can make your code fail to compile if it uses deprecated APIs.</span><br><span class="line"># In order to do so, uncomment the following line.</span><br><span class="line">#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0</span><br><span class="line"></span><br><span class="line">SOURCES += \</span><br><span class="line">    main.cpp \</span><br><span class="line">    mainwindow.cpp</span><br><span class="line"></span><br><span class="line">HEADERS += \</span><br><span class="line">    mainwindow.h</span><br><span class="line"></span><br><span class="line">FORMS += \</span><br><span class="line">    mainwindow.ui</span><br><span class="line"></span><br><span class="line"># Default rules for deployment.</span><br><span class="line">qnx: target.path = /tmp/$$&#123;TARGET&#125;/bin</span><br><span class="line">else: unix:!android: target.path = /opt/$$&#123;TARGET&#125;/bin</span><br><span class="line">!isEmpty(target.path): INSTALLS += target</span><br><span class="line"></span><br><span class="line">RESOURCES += \</span><br><span class="line">    resource.qrc</span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>通过rcc资源编译器编译.qrc文件<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">template % /opt/homebrew/Cellar/qt@5/5.15.11/bin/rcc  -binary resource.qrc -o logo.rcc</span><br></pre></td></tr></table></figure></li>
+<li>在可执行目录下，新建logo文件夹，将logo.rcc拷贝过去<br><img src="/images/qtres11.jpg"></li>
+<li>程序中加载资源<br>main.cpp文件，注意 QResource::registerResource 处使用绝对路径，<em>目前相对路径会找不到.rcc文件，原因不知道</em><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QResource&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(QResource::<span class="built_in">registerResource</span>(<span class="string">&quot;/Users/galaxy/code/QtPrj/template/skin/logo.rcc&quot;</span>)) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Resources loaded successfully!&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Failed to load resources!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    MainWindow w;</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+MainWindow.cpp文件的构造函数中<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">ui-&gt;toolButton-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">&quot;background-image: url(:/logo/pic/logo.png)&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="qml文件是如何与cpp文件进行交互，为什么说创建好看的ui界面只需要写qml代码就可以？？？"><a href="#qml文件是如何与cpp文件进行交互，为什么说创建好看的ui界面只需要写qml代码就可以？？？" class="headerlink" title="qml文件是如何与cpp文件进行交互，为什么说创建好看的ui界面只需要写qml代码就可以？？？"></a><em>qml文件是如何与cpp文件进行交互，为什么说创建好看的ui界面只需要写qml代码就可以？？？</em></h3><p>这实际就是Qt Quick编程</p>
+
                 
             </div>
             <hr/>
