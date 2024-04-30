@@ -432,7 +432,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-17
+                    2024-04-24
                 </div>
                 
 
@@ -464,7 +464,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="对比vins和basalt的区别"><a href="#对比vins和basalt的区别" class="headerlink" title="对比vins和basalt的区别"></a><em>对比vins和basalt的区别</em></h2>
+                <h1 id="视觉惯性slam"><a href="#视觉惯性slam" class="headerlink" title="视觉惯性slam"></a>视觉惯性slam</h1><h2 id="对比vins和basalt的区别"><a href="#对比vins和basalt的区别" class="headerlink" title="对比vins和basalt的区别"></a><em>对比vins和basalt的区别</em></h2><h2 id="舒尔补"><a href="#舒尔补" class="headerlink" title="舒尔补"></a>舒尔补</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>对任意矩阵$M$<br>$$<br>M &#x3D; \begin{bmatrix}A &amp; B \ C &amp; D  \end{bmatrix},<br>$$<br>其中$A\in\mathbb{R}^{n\times n}, D\in \mathbb{R}^{m\times m}, B\in \mathbb{R}^{n\times m}, C\in\mathbb{R}^{m\times n}.$<br>若矩阵$D$可逆，则$A-BD^{-1}C$为$D$关于M的舒尔补；若矩阵$A$可逆，则$D-CA^{-1}B$为$A$关于$M$的舒尔补。</p>
+<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>在将$M$变为上三角矩阵或者下三角矩阵的过程中，都会遇到舒尔补。<br>将$M$变为下三角矩阵</p>
+<p>若$A$可逆，初等变换使得$M$变为下三角矩阵：<br>$$<br>\begin{bmatrix}I_n &amp; 0 \ -CA^{-1} &amp; I_m \end{bmatrix}_{m\times n} \begin{bmatrix} A &amp; B  \ C &amp; D \end{bmatrix} &#x3D; \begin{bmatrix}A &amp; B\ 0 &amp; D - CA^{-1}B \end{bmatrix}<br>$$</p>
+<p>若$A$可逆，初等变换使得$M$变为上三角矩阵：<br>$$<br>\begin{bmatrix} A &amp; B  \ C &amp; D \end{bmatrix} \begin{bmatrix} I &amp; -A^{-1}B \ 0 &amp; I_m \end{bmatrix} &#x3D; \begin{bmatrix} A &amp; 0 \ C &amp; D - CA^{-1}B \end{bmatrix}<br>$$</p>
+<p>若$D$可逆，初等变换使得$M$变为下三角矩阵：<br>$$<br>\begin{bmatrix}A &amp; B \ C &amp; D \end{bmatrix} \begin{bmatrix} I_n &amp; 0 \ -D^{-1}C &amp;  I_m \end{bmatrix} &#x3D; \begin{bmatrix} A - BD^{-1}C &amp; B \ 0 &amp; D \end{bmatrix}<br>$$</p>
+<p>若$D$可逆，初等变换使得$M$变为上三角矩阵：<br>$$<br> \begin{bmatrix} I &amp; -BD^{-1} \ 0 &amp; I \end{bmatrix} \begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix} &#x3D; \begin{bmatrix} A - BD^{-1}C  &amp; 0 \ C &amp; D \end{bmatrix}<br>$$</p>
+<p>综上所述，若$A$或$D$任意可逆，均可将$M$变为上下三角矩阵。其实从初等变换的角度更易理解！<br><strong>进一步，还可将$M$变为对角阵！左乘，初等行变换；右乘，初等列变换。</strong></p>
+
                 
             </div>
             <hr/>

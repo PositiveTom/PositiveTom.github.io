@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="H-infty控制, Galaxy">
+    <meta name="keywords" content="gtest, Galaxy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>H-infty控制 | Galaxy</title>
+    <title>gtest | Galaxy</title>
     <link rel="icon" type="image/jpeg" href="/medias/loopy.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">H-infty控制</h1>
+                    <h1 class="description center-align post-title">gtest</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/">
-                                <span class="chip bg-color">控制理论</span>
+                            <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">软件测试</span>
                             </a>
                         
                     </div>
@@ -425,14 +425,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-04-21
+                    2024-04-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-21
+                    2024-04-28
                 </div>
                 
 
@@ -464,8 +464,87 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="H-infty控制"><a href="#H-infty控制" class="headerlink" title="H-infty控制"></a>H-infty控制</h1><p>LQRraccati方程推导：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43487974/article/details/127195643#/">https://blog.csdn.net/weixin_43487974/article/details/127195643#/</a><br>H无穷最优控制器推导：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86H%E2%88%9E%E6%8E%A7%E5%88%B6/21125656?fr=ge_ala#/">https://baike.baidu.com/item/%E6%A0%87%E5%87%86H%E2%88%9E%E6%8E%A7%E5%88%B6/21125656?fr=ge_ala#/</a></p>
+                <h1 id="gtest"><a href="#gtest" class="headerlink" title="gtest"></a>gtest</h1><h2 id="（一）纳入项目的方式"><a href="#（一）纳入项目的方式" class="headerlink" title="（一）纳入项目的方式"></a>（一）纳入项目的方式</h2><h3 id="1-FetchContent"><a href="#1-FetchContent" class="headerlink" title="1. FetchContent"></a>1. FetchContent</h3><p>参考此官方链接，即可构建一个基础的gtest工程，但可能遇到下述问题，不过仍需具体问题具体分析：<a target="_blank" rel="noopener" href="https://google.github.io/googletest/quickstart-cmake.html#/">https://google.github.io/googletest/quickstart-cmake.html#/</a></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span>(FetchContent)</span><br></pre></td></tr></table></figure>
+<p>导入了 CMake 的 FetchContent 模块，它允许在项目构建过程中下载和管理外部依赖项的源代码。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_Declare(</span><br><span class="line">  googletest</span><br><span class="line">  URL https://github.com/google/googletest/archive/<span class="number">03597</span>a01ee50ed33e9dfd640b249b4be3799d395.zip</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>使用 FetchContent_Declare 声明了一个名为 googletest 的外部依赖项，并指定了其源代码的 URL。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_MakeAvailable(googletest)</span><br></pre></td></tr></table></figure>
+<p>下载gtest源码</p>
+<p>下载到指定目录</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(gtest_INSTALL_DIR <span class="variable">$&#123;CMAKE_BINARY_DIR&#125;</span>/googletest)</span><br><span class="line"></span><br><span class="line">FetchContent_Populate(googletest</span><br><span class="line">  SOURCE_DIR <span class="variable">$&#123;gtest_INSTALL_DIR&#125;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
+<p>解决</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_Declare(</span><br><span class="line">    googletest</span><br><span class="line">    URL https://github.com/google/googletest/archive/<span class="number">03597</span>a01ee50ed33e9dfd640b249b4be3799d395.zip</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="mac上使用cmake下载出现下述warning"><a href="#mac上使用cmake下载出现下述warning" class="headerlink" title="mac上使用cmake下载出现下述warning"></a>mac上使用cmake下载出现下述warning</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is</span><br><span class="line">  not <span class="built_in">set</span>.  The policy<span class="string">&#x27;s OLD behavior will be used.  When using a URL</span></span><br><span class="line"><span class="string">  download, the timestamps of extracted files should preferably be that of</span></span><br><span class="line"><span class="string">  the time of extraction, otherwise code that depends on the extracted</span></span><br><span class="line"><span class="string">  contents might not be rebuilt if the URL changes.  The OLD behavior</span></span><br><span class="line"><span class="string">  preserves the timestamps from the archive instead, but this is usually not</span></span><br><span class="line"><span class="string">  what you want.  Update your project to the NEW behavior or specify the</span></span><br><span class="line"><span class="string">  DOWNLOAD_EXTRACT_TIMESTAMP option with a value of true to avoid this</span></span><br><span class="line"><span class="string">  robustness issue.</span></span><br><span class="line"><span class="string">Call Stack (most recent call first):</span></span><br><span class="line"><span class="string">  CMakeLists.txt:43 (FetchContent_Declare)</span></span><br><span class="line"><span class="string">This warning is for project developers.  Use -Wno-dev to suppress it.</span></span><br></pre></td></tr></table></figure>
+
+<p>解决：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_Declare(</span><br><span class="line">    googletest</span><br><span class="line">    URL https://github.com/google/googletest/archive/<span class="number">03597</span>a01ee50ed33e9dfd640b249b4be3799d395.zip</span><br><span class="line">)</span><br><span class="line">DOWNLOAD_EXTRACT_TIMESTAMP <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="修改出现下述问题"><a href="#修改出现下述问题" class="headerlink" title="修改出现下述问题"></a>修改出现下述问题</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ 11%] Performing download step (download, verify and extract) <span class="keyword">for</span> <span class="string">&#x27;googletest-populate&#x27;</span></span><br><span class="line">-- File already exists but no <span class="built_in">hash</span> specified (use URL_HASH):</span><br><span class="line">  file=<span class="string">&#x27;/Users/galaxy/maintained_project_code/c_plus_plus_project/build/_deps/googletest-subbuild/googletest-populate-prefix/src/03597a01ee50ed33e9dfd640b249b4be3799d395.zip&#x27;</span></span><br><span class="line">Old file will be removed and new file downloaded from URL.</span><br><span class="line">-- Downloading...</span><br><span class="line">   dst=<span class="string">&#x27;/Users/galaxy/maintained_project_code/c_plus_plus_project/build/_deps/googletest-subbuild/googletest-populate-prefix/src/03597a01ee50ed33e9dfd640b249b4be3799d395.zip&#x27;</span></span><br><span class="line">   <span class="built_in">timeout</span>=<span class="string">&#x27;none&#x27;</span></span><br><span class="line">   inactivity <span class="built_in">timeout</span>=<span class="string">&#x27;none&#x27;</span></span><br><span class="line">-- Using src=<span class="string">&#x27;https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip&#x27;</span></span><br><span class="line">CMake Error at googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake:170 (message):</span><br><span class="line">  Each download failed!</span><br><span class="line"></span><br><span class="line">    error: downloading <span class="string">&#x27;https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip&#x27;</span> failed</span><br><span class="line">          status_code: 56</span><br><span class="line">          status_string: <span class="string">&quot;Failure when receiving data from the peer&quot;</span></span><br><span class="line">          <span class="built_in">log</span>:</span><br><span class="line">          --- LOG BEGIN ---</span><br><span class="line">            Trying 20.205.243.166:443...</span><br><span class="line"></span><br><span class="line">  Connected to github.com (20.205.243.166) port 443 (<span class="comment">#0)</span></span><br><span class="line"></span><br><span class="line">  ALPN: offers h2,http/1.1</span><br><span class="line"></span><br><span class="line">  (304) (OUT), TLS handshake, Client hello (1):</span><br><span class="line"></span><br><span class="line">  [315 bytes data]</span><br><span class="line"></span><br><span class="line">  (304) (IN), TLS handshake, Server hello (2):</span><br><span class="line"></span><br><span class="line">  [122 bytes data]</span><br><span class="line"></span><br><span class="line">  (304) (IN), TLS handshake, Unknown (8):</span><br><span class="line"></span><br><span class="line">  [19 bytes data]</span><br><span class="line"></span><br><span class="line">  (304) (IN), TLS handshake, Certificate (11):</span><br><span class="line"></span><br><span class="line">  [3137 bytes data]</span><br><span class="line"></span><br><span class="line">  (304) (IN), TLS handshake, CERT verify (15):</span><br><span class="line"></span><br><span class="line">  [78 bytes data]</span><br><span class="line"></span><br><span class="line">  (304) (IN), TLS handshake, Finished (20):</span><br><span class="line"></span><br><span class="line">  [36 bytes data]</span><br><span class="line"></span><br><span class="line">  (304) (OUT), TLS handshake, Finished (20):</span><br><span class="line"></span><br><span class="line">  [36 bytes data]</span><br><span class="line"></span><br><span class="line">  SSL connection using TLSv1.3 / AEAD-CHACHA20-POLY1305-SHA256</span><br><span class="line"></span><br><span class="line">  ALPN: server accepted h2</span><br><span class="line"></span><br><span class="line">  Server certificate:</span><br><span class="line"></span><br><span class="line">   subject: CN=github.com</span><br><span class="line">   start <span class="built_in">date</span>: Mar  7 00:00:00 2024 GMT</span><br><span class="line">   expire <span class="built_in">date</span>: Mar  7 23:59:59 2025 GMT</span><br><span class="line">   subjectAltName: host <span class="string">&quot;github.com&quot;</span> matched cert<span class="string">&#x27;s &quot;github.com&quot;</span></span><br><span class="line"><span class="string">   issuer: C=GB; ST=Greater Manchester; L=Salford; O=Sectigo Limited; CN=Sectigo ECC Domain Validation Secure Server CA</span></span><br><span class="line"><span class="string">   SSL certificate verify ok.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  using HTTP/2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  h2 [:method: GET]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  h2 [:scheme: https]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  h2 [:authority: github.com]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  h2 [:path:</span></span><br><span class="line"><span class="string">  /google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  h2 [user-agent: curl/7.87.0]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  h2 [accept: */*]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Using Stream ID: 1 (easy handle 0x148024600)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  GET /google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip</span></span><br><span class="line"><span class="string">  HTTP/2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Host: github.com</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  User-Agent: curl/7.87.0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Accept: */*</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Closing connection 0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          --- LOG END ---</span></span><br><span class="line"><span class="string">          </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">make[2]: *** [googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download] Error 1</span></span><br><span class="line"><span class="string">make[1]: *** [CMakeFiles/googletest-populate.dir/all] Error 2</span></span><br><span class="line"><span class="string">make: *** [all] Error 2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">CMake Error at /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:1662 (message):</span></span><br><span class="line"><span class="string">  Build step for googletest failed: 2</span></span><br><span class="line"><span class="string">Call Stack (most recent call first):</span></span><br><span class="line"><span class="string">  /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:1802:EVAL:2 (__FetchContent_directPopulate)</span></span><br><span class="line"><span class="string">  /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:1802 (cmake_language)</span></span><br><span class="line"><span class="string">  /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:2016 (FetchContent_Populate)</span></span><br><span class="line"><span class="string">  CMakeLists.txt:51 (FetchContent_MakeAvailable)</span></span><br></pre></td></tr></table></figure>
+<p>解决：<br>参考：<a target="_blank" rel="noopener" href="https://discourse.cmake.org/t/cmake-fetchcontent/7658">https://discourse.cmake.org/t/cmake-fetchcontent/7658</a></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_Declare(</span><br><span class="line">    googletest</span><br><span class="line">    GIT_REPOSITORY https://github.com/google/googletest.git</span><br><span class="line">    GIT_TAG <span class="number">03597</span>a01ee50ed33e9dfd640b249b4be3799d395</span><br><span class="line">    DOWNLOAD_EXTRACT_TIMESTAMP <span class="keyword">true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cmake..依旧出现问题<br>解决：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_MakeAvailable(googletest)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>编译成功</p>
+<ul>
+<li><p>疑问1：此方式为何未将gtest纳入项目？<br>源代码位于build目录中，FetchContent的设计初衷是为避免污染源代码目录，如果纳入项目与此相悖。</p>
+</li>
+<li><p>疑问2：FetchContent_MakeAvailable包含双参数，报如下的错<br>以为第二个参数为给项目起的别名，因此</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">FetchContent_MakeAvailable(googletest mygoogle)</span><br></pre></td></tr></table></figure>
+<p>但报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CMake Error at /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:1206 (message):</span><br><span class="line">  No content details recorded <span class="keyword">for</span> mygoogle</span><br><span class="line">Call Stack (most recent call first):</span><br><span class="line">  /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:1723 (__FetchContent_getSavedDetails)</span><br><span class="line">  /opt/homebrew/Cellar/cmake/3.27.1/share/cmake/Modules/FetchContent.cmake:2016 (FetchContent_Populate)</span><br><span class="line">  CMakeLists.txt:56 (FetchContent_MakeAvailable)</span><br></pre></td></tr></table></figure>
+<p>双参数表明该项目依赖两个外部库：例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">FetchContent_Declare(</span><br><span class="line">  googletest</span><br><span class="line">  GIT_REPOSITORY https://github.com/google/googletest.git</span><br><span class="line">  GIT_TAG        release-1.8.0</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">FetchContent_Declare(</span><br><span class="line">  myCompanyIcons</span><br><span class="line">  GIT_REPOSITORY https://github.com/mycompany/myicons.git</span><br><span class="line">  GIT_TAG        v1.0</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">FetchContent_MakeAvailable(googletest myCompanyIcons)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-源码放置到指定目录，用find-package"><a href="#2-源码放置到指定目录，用find-package" class="headerlink" title="2. 源码放置到指定目录，用find_package"></a>2. 源码放置到指定目录，用find_package</h3><h4 id="使用CMakeLists-txt声明对GoogleTest的依赖项"><a href="#使用CMakeLists-txt声明对GoogleTest的依赖项" class="headerlink" title="使用CMakeLists.txt声明对GoogleTest的依赖项"></a>使用CMakeLists.txt声明对GoogleTest的依赖项</h4><h2 id="（二）使用"><a href="#（二）使用" class="headerlink" title="（二）使用"></a>（二）使用</h2><p>优秀测试具备的特性：</p>
+<ol>
+<li>独立、可重复。<em>测试失败，允许单独运行测试从而快速调试。</em></li>
+<li><em>组织良好、反映被测试代码的结构。</em></li>
+<li>可移植、可重复使用。适用各种平台、windows，mac，linux等。</li>
+<li>测试失败，提供尽可能多的失败信息；测试失败仅停止当前测试，其他测试继续运行。</li>
+<li><em>测试间可共享资源。</em></li>
+</ol>
+<h3 id="预备"><a href="#预备" class="headerlink" title="预备"></a>预备</h3><h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><p>ASSERT_*: 失败时产生致命错误，终止当前测试函数。<br>EXPECT_*: 失败时不会终止当前测试函数。（<strong>通常为首选</strong>）</p>
+<h4 id="TEST"><a href="#TEST" class="headerlink" title="TEST"></a>TEST</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">TEST</span>(TestSuitName, TestName) &#123;</span><br><span class="line">    ... test ... body</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TestSuitName: 测试套件的名称。通常将一组相关的测试用例组织在一起。<br>TestName: 测试套件内的测试用例的名称，每个测试用例都有一个唯一的名称。</p>
+<ul>
+<li>二者命名规则：标准的c++标识符，不包含任何下划线</li>
+</ul>
+<p>例如：<br>factorial.h文件如下</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Factorial</span><span class="params">(<span class="type">int</span> n)</span></span>;  <span class="comment">// Returns the factorial of n</span></span><br></pre></td></tr></table></figure>
+<p>factorial_test.cpp文件如下</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Tests factorial of 0.</span></span><br><span class="line"><span class="built_in">TEST</span>(FactorialTest, HandlesZeroInput) &#123;</span><br><span class="line">  <span class="built_in">EXPECT_EQ</span>(<span class="built_in">Factorial</span>(<span class="number">0</span>), <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Tests factorial of positive numbers.</span></span><br><span class="line"><span class="built_in">TEST</span>(FactorialTest, HandlesPositiveInput) &#123;</span><br><span class="line">  <span class="built_in">EXPECT_EQ</span>(<span class="built_in">Factorial</span>(<span class="number">1</span>), <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">EXPECT_EQ</span>(<span class="built_in">Factorial</span>(<span class="number">2</span>), <span class="number">2</span>);</span><br><span class="line">  <span class="built_in">EXPECT_EQ</span>(<span class="built_in">Factorial</span>(<span class="number">3</span>), <span class="number">6</span>);</span><br><span class="line">  <span class="built_in">EXPECT_EQ</span>(<span class="built_in">Factorial</span>(<span class="number">8</span>), <span class="number">40320</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>疑问一：TestSuitName和TestName有何用？在哪里使用？<ul>
+<li>当测试失败时，会报告测试套件名和测试用例名，帮助开发人员快速定位问题。</li>
+<li>更好地管理和组织测试用例，使其易于理解和维护。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Test-Fixture"><a href="#Test-Fixture" class="headerlink" title="Test Fixture"></a>Test Fixture</h4><p>参考：<a target="_blank" rel="noopener" href="https://google.github.io/googletest/primer.html#/">https://google.github.io/googletest/primer.html#/</a></p>
+<h5 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h5><p>多个测试用例使用相似数据。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">TEST_F</span>(TestFixtureClassName, TestName) &#123;</span><br><span class="line">    ... test body ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参数 TestFixtureClassName 必须为 通过 public 方式继承自 testing::Test 的派生类</li>
+<li><strong>运行此测试用例发生的行为</strong>：<ul>
+<li><ol>
+<li>构造一个 TestFixtureClassName 对象，称为t1</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>测试用例 TestName 在 t1 上运行</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>测试用例 TestName 运行结束，t1 被析构</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><h2 id="（三）FAQ"><a href="#（三）FAQ" class="headerlink" title="（三）FAQ"></a>（三）FAQ</h2><h3 id="gtest被设计为线程安全何意？"><a href="#gtest被设计为线程安全何意？" class="headerlink" title="gtest被设计为线程安全何意？"></a><em>gtest被设计为线程安全何意？</em></h3>
                 
             </div>
             <hr/>
@@ -491,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://positivetom.github.io/2024/04/21/H-infty%E6%8E%A7%E5%88%B6/">http://positivetom.github.io/2024/04/21/H-infty%E6%8E%A7%E5%88%B6/</a>
+                    <a href="http://positivetom.github.io/2024/04/28/gtest/">http://positivetom.github.io/2024/04/28/gtest/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,8 +608,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/">
-                                    <span class="chip bg-color">控制理论</span>
+                                <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">软件测试</span>
                                 </a>
                             
                         </div>
@@ -574,17 +653,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/04/21/%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E8%BF%AD%E4%BB%A3/">
+                <a href="/2024/04/28/gtest/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="非线性方程迭代">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="gtest">
                         
-                        <span class="card-title">非线性方程迭代</span>
+                        <span class="card-title">gtest</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -594,9 +674,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -605,11 +685,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数值分析</span>
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">软件测试</span>
                     </a>
                     
                 </div>
@@ -623,13 +704,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/04/20/%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6MCU/">
+                <a href="/2024/04/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="智能汽车MCU">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="机器学习">
                         
-                        <span class="card-title">智能汽车MCU</span>
+                        <span class="card-title">机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -640,7 +721,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
                             </span>
                         <span class="publish-author">
                             
@@ -653,8 +734,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">软件开发</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

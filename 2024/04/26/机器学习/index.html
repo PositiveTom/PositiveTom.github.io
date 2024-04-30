@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="H-infty控制, Galaxy">
+    <meta name="keywords" content="机器学习, Galaxy">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>H-infty控制 | Galaxy</title>
+    <title>机器学习 | Galaxy</title>
     <link rel="icon" type="image/jpeg" href="/medias/loopy.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -293,7 +293,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">H-infty控制</h1>
+                    <h1 class="description center-align post-title">机器学习</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/">
-                                <span class="chip bg-color">控制理论</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -425,14 +425,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-04-21
+                    2024-04-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-21
+                    2024-04-27
                 </div>
                 
 
@@ -464,8 +464,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="H-infty控制"><a href="#H-infty控制" class="headerlink" title="H-infty控制"></a>H-infty控制</h1><p>LQRraccati方程推导：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43487974/article/details/127195643#/">https://blog.csdn.net/weixin_43487974/article/details/127195643#/</a><br>H无穷最优控制器推导：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86H%E2%88%9E%E6%8E%A7%E5%88%B6/21125656?fr=ge_ala#/">https://baike.baidu.com/item/%E6%A0%87%E5%87%86H%E2%88%9E%E6%8E%A7%E5%88%B6/21125656?fr=ge_ala#/</a></p>
-
+                <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><h4 id="二分类算法"><a href="#二分类算法" class="headerlink" title="二分类算法"></a>二分类算法</h4><h5 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h5><ol>
+<li>数学模型：<br>$$<br>\begin{align}<br> \bar{f}<em>{\vec{w},b}(\vec{x})&amp;&#x3D;\vec{w}\cdot \vec{x} + b,\<br> g(\bar{f}</em>{\vec{w},b}(\vec{x})) &amp;&#x3D; \frac{1}{1+e^{-f_{\vec{w},b}(\vec{x})}},<br>\end{align}<br>$$其中$0&lt;g(\bar{f}<em>{\vec{w},b}(\vec{x}))&lt;1$，也称为$\text{sigmod}$函数。<br>$\bar{f}</em>{\vec{w},b}(\vec{x})$还可表示为条件概率<br>$$<br>\bar{f}_{\vec{w},b}(\vec{x})&#x3D;P(y&#x3D;1|\vec{x};\vec{w},b),<br>$$其中<br>$$P(y&#x3D;0)+P(y&#x3D;1)&#x3D;1.$$</li>
+</ol>
+<ul>
+<li>data：<a target="_blank" rel="noopener" href="https://github.com/kaieye/2022-Machine-Learning-Specialization/blob/main/Supervised%20Machine%20Learning%20Regression%20and%20Classification/week3/9.Week%203%20practice%20lab%20logistic%20regression/C1_W3_Logistic_Regression.ipynb">https://github.com/kaieye/2022-Machine-Learning-Specialization/blob/main/Supervised%20Machine%20Learning%20Regression%20and%20Classification/week3/9.Week%203%20practice%20lab%20logistic%20regression/C1_W3_Logistic_Regression.ipynb</a></li>
+</ul>
+<ol start="2">
+<li><p>决策边界<br>$$<br>\begin{align}<br>\hat{y}&amp;&#x3D;{f}<em>{\vec{w},b}(\vec{x}) \notag<br>\&amp;&#x3D;g(\bar{f}</em>{\vec{w},b}(\vec{x}))&#x3D;\left{<br>\begin{aligned}<br>1, \quad  \bar{f}<em>{\vec{w},b}(\vec{x}) &gt; 0 \ 0, \quad \bar{f}</em>{\vec{w},b}(\vec{x}) \leq 0<br>\end{aligned}<br> \right.<br>\end{align}<br>$$<br>决策边界：$\bar{f}_{\vec{w},b}(\vec{x})&#x3D;0$</p>
+</li>
+<li><p>代价函数<br>$i&#x3D;1,\cdots,m$,<br>$j&#x3D;1,\cdots,n$,<br>$m$: 训练样本大小<br>$n$: 特征维度</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$X_1$</th>
+<th>$\cdots$</th>
+<th>$X_n$</th>
+<th>$y$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>$\vdots$</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$\vdots$</td>
+</tr>
+<tr>
+<td>m</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>其中$y\in{0,1}$是输出。<br><strong>Problem：如何选择参数$\vec{w}$和$b$使得$y$近似$f_{\vec{w},b}(\vec{x})$？</strong><br>逻辑回归成本函数，由于逻辑回归函数含有$e$的指数项，为避免非凸，引入$\log$函数<br>$$<br>\begin{align}<br>L(f_{\vec{w},b}(\vec{x}^{(i)}),y^{(i)}) &#x3D;<br>\left{<br>    \begin{aligned}<br>        -\log(f_{\vec{w},b}(\vec{x}^{(i)})), ~ \text{if}~ y^{(i)}&#x3D;1\<br>        -\log(1-f_{\vec{w},b}(\vec{x}^{(i)})),<del>\text{if}</del>y^{(i)}&#x3D;0<br>    \end{aligned}<br>\right.<br>\end{align}<br>$$当$y^{(i)}&#x3D;1$时，如果$f_{\vec{w},b}(\vec{x}^{(i)})\rightarrow 1$，那么$L\rightarrow 0$，因此此损失函数合理。</p>
+<p>代价函数为：<br>$$<br>J(\vec{w},b)&#x3D;\frac{1}{m}\sum_{i&#x3D;1}^m L(f_{\vec{w},b}(\vec{x}^{(i)}),y^{(i)})<br>$$</p>
+<p>通过此方式，可使得使用逻辑回归模型的代价函数收敛到全局最小。</p>
+<ol start="4">
+<li><p>简化逻辑回归代价函数<br>$$<br>L(f_{\vec{w},b}(\vec{x}^{(i)}),y^{(i)}) &#x3D; -y^{(i)}\log(f_{\vec{w},b}(\vec{x}^{(i)})) - (1 - y^{(i)})\log(1-f_{\vec{w},b}(\vec{x}^{(i)}))<br>$$</p>
+</li>
+<li><p>实现梯度下降</p>
+</li>
+</ol>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2>
                 
             </div>
             <hr/>
@@ -491,7 +543,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://positivetom.github.io/2024/04/21/H-infty%E6%8E%A7%E5%88%B6/">http://positivetom.github.io/2024/04/21/H-infty%E6%8E%A7%E5%88%B6/</a>
+                    <a href="http://positivetom.github.io/2024/04/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">http://positivetom.github.io/2024/04/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,8 +581,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/">
-                                    <span class="chip bg-color">控制理论</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -578,13 +630,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/04/21/%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E8%BF%AD%E4%BB%A3/">
+                <a href="/2024/04/28/gtest/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="非线性方程迭代">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="gtest">
                         
-                        <span class="card-title">非线性方程迭代</span>
+                        <span class="card-title">gtest</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -595,7 +647,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-28
                         </span>
                         <span class="publish-author">
                             
@@ -608,8 +660,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数值分析</span>
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">软件测试</span>
                     </a>
                     
                 </div>
@@ -623,13 +675,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/04/20/%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6MCU/">
+                <a href="/2024/04/25/kaggle/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="智能汽车MCU">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="kaggle">
                         
-                        <span class="card-title">智能汽车MCU</span>
+                        <span class="card-title">kaggle</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -640,7 +692,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-25
                             </span>
                         <span class="publish-author">
                             
@@ -653,8 +705,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">软件开发</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

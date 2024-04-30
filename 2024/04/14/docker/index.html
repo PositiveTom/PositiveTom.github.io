@@ -437,7 +437,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-14
+                    2024-04-25
                 </div>
                 
 
@@ -475,6 +475,13 @@
 <h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Tan_LC/article/details/130615355#/">https://blog.csdn.net/Tan_LC/article/details/130615355#/</a></p>
 <h4 id="检测安装是否成功的步骤"><a href="#检测安装是否成功的步骤" class="headerlink" title="检测安装是否成功的步骤"></a>检测安装是否成功的步骤</h4><p><a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/install/mac">https://yeasy.gitbook.io/docker_practice/install/mac</a></p>
 <h4 id="使用ros"><a href="#使用ros" class="headerlink" title="使用ros"></a>使用ros</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/85664330#/">https://zhuanlan.zhihu.com/p/85664330#/</a></p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="docker镜像存储位置？"><a href="#docker镜像存储位置？" class="headerlink" title="docker镜像存储位置？"></a>docker镜像存储位置？</h3><h4 id="MacOS-Windows-Ubuntu"><a href="#MacOS-Windows-Ubuntu" class="headerlink" title="MacOS &#x2F; Windows &#x2F; Ubuntu"></a>MacOS &#x2F; Windows &#x2F; Ubuntu</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24256877/article/details/123033703#/">https://blog.csdn.net/qq_24256877/article/details/123033703#/</a></p>
+<h4 id="如何更改镜像存储位置？"><a href="#如何更改镜像存储位置？" class="headerlink" title="如何更改镜像存储位置？"></a><em>如何更改镜像存储位置？</em></h4><h3 id="docker-run解析"><a href="#docker-run解析" class="headerlink" title="docker run解析"></a>docker run解析</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">            -ti --<span class="built_in">rm</span> \</span><br><span class="line">            --volume=<span class="string">&quot;<span class="variable">$&#123;PWD&#125;</span>:/home/MC-Calib&quot;</span> \</span><br><span class="line">            --volume=<span class="string">&quot;PATH_TO_DATA:/home/MC-Calib/data&quot;</span> \</span><br><span class="line">            bailool/mc-calib-prod</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–rm : 容器在退出后应该被自动删除</li>
+<li>–volume&#x3D;”${PWD}:&#x2F;home&#x2F;MC-Calib” : 挂载卷的参数，用于将主机上当前工作目录(${PWD}) 中的内容挂载到容器内的 &#x2F;home&#x2F;MC-Calib 目录。使得容器可以访问主机上的文件。</li>
+<li>–volume&#x3D;”PATH_TO_DATA:&#x2F;home&#x2F;MC-Calib&#x2F;data” : 挂载卷的参数，将主机上的 PATH_TO_DATA 目录挂载到容器内的 &#x2F;home&#x2F;MC-Calib&#x2F;data 目录。这样容器就可以访问主机上指定的数据目录。</li>
+</ul>
 
                 
             </div>
